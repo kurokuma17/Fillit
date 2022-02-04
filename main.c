@@ -6,29 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/04 11:36:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/04 11:41:16 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-int main(int argc, char **argv)
+?? 	ft_cpy_to_structure(int fd, t_pieces **pieces)
 {
-	t_piece	*pieces[27];
-	int		fd;
-
-	if (argc != 2)
-	{
-		printf("too many files\n"); //this is where we should print usage
-		return (1);
-	}
-	fd = open(argv[1], O_RDONLY)
-	if (fd < 0)
-	{
-		printf("unable to open file\n"); //error handing to go here
-		return (1);
-	}
 
 }
 
@@ -46,5 +32,27 @@ void	ft_open_file(int fd, t_piece **pieces)
 	while (i < ret)
 	{
 		pieces[i/21] = ft_cpy_to_structure(i, pieces)
+		//check for errors
+		i = i + 21;
 	}
 }
+
+int main(int argc, char **argv)
+{
+	t_piece	*pieces[27];
+	int		fd;
+
+	if (argc != 2)
+	{
+		printf("too many files\n"); //this is where we should print usage
+		return (1);
+	}
+	fd = open(argv[1], O_RDONLY)
+	if (fd < 0)
+	{
+		printf("unable to open file\n"); //error handing to go here
+		return (1);
+	}
+	//carry on with rest of functions
+}
+
