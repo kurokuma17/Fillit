@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2022/01/08 18:07:36 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/11 15:08:43 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+void	ft_lstadd_back(t_list **alst, t_list *new)
+{
+	t_list	*temp;
 
-#endif
+	if (*alst == NULL)
+		*alst = new;
+	else
+	{
+		temp = *alst;
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = new;
+		new->next = NULL;
+	}
+}

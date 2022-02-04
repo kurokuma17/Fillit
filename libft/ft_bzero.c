@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/10 14:03:12 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 16:37:54 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// The bzero() function writes n zeroed bytes to the string s. If n is zero,
+// bzero() does nothing.
 
-#endif
+void	ft_bzero(void *str, size_t n)
+{
+	ft_memset(str, '\0', n);
+}

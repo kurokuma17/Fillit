@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/08 13:58:51 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 16:58:10 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+// The strcmp() and strncmp() functions lexicographically compare the null-
+// terminated strings s1 and s2.
 
-# include "libft/libft.h"
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

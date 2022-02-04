@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/11 10:55:36 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 17:00:51 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// Allocates (with malloc(3)) and returns a “fresh” memory area.
+// The memory allocated is initialized to 0.
+// If the allocation fails, the function returns NULL.
 
-#endif
+void	*ft_memalloc(size_t size)
+{
+	void	*temp;
+
+	if (size != 0)
+	{
+		temp = (void *)malloc(sizeof(*temp) * size);
+		if (temp != NULL)
+		{
+			ft_bzero(temp, size);
+			return (temp);
+		}
+	}
+	return (NULL);
+}

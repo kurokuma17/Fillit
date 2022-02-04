@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2022/01/08 17:11:37 by deelliot          #+#    #+#             */
+/*   Updated: 2022/02/03 12:30:09 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// Iterates the list lst and applies the function f to each link.
 
-#endif
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+{
+	if (lst == NULL)
+		return ;
+	while (lst != NULL)
+	{
+		f(lst);
+		lst = lst->next;
+	}
+}

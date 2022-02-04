@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/08 13:35:45 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 16:53:25 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// The strrchr() function is identical to strchr(), except it locates the last
+// occurrence of c.
 
-#endif
+char	*ft_strrchr(const char *s, int c)
+{
+	int	len;
+
+	len = ft_strlen(s);
+	if (!s)
+		return (NULL);
+	while (len >= 0)
+	{
+		if (s[len] == (char)c)
+			return ((char *)&s[len]);
+		len--;
+	}
+	return (NULL);
+}

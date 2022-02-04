@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/11 13:37:19 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 17:01:53 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// Allocates (with malloc(3)) and returns a “fresh” string ending with ’\0’.
+// Each character of the string is initialized at ’\0’.
+// If the allocation fails the function returns NULL.
 
-#endif
+char	*ft_strnew(size_t size)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(*str) * size + 1);
+	if (str != NULL)
+	{
+		ft_bzero(str, size + 1);
+		return (str);
+	}
+	return (NULL);
+}

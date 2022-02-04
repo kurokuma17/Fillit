@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/11 11:33:54 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 17:01:17 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// Takes as a parameter the address of a memory area that needs to be freed
+// with free(3), then puts the pointer to NULL.
 
-#endif
+void	ft_memdel(void **ap)
+{
+	if (!ap)
+		return ;
+	if (*ap != NULL)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
+}

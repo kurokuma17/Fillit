@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/03 14:19:56 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 16:37:23 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// The memset() function writes len bytes of value c (converted to an unsigned
+// char) to the string b.
 
-#endif
+void	*ft_memset(void *str, int c, size_t n)
+{
+	unsigned char	*s1;
+
+	s1 = str;
+	while (n > 0)
+	{
+		*s1 = c;
+		s1++;
+		n--;
+	}
+	return (str);
+}

@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:37:48 by deelliot         ###   ########.fr       */
+/*   Created: 2021/11/15 13:30:45 by deelliot          #+#    #+#             */
+/*   Updated: 2022/01/25 17:08:15 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+// Lexicographical comparison between s1 and s2.
+// If the 2 strings are identical the function returns 1, or 0 otherwise
 
-#endif
+int	ft_strequ(char const *s1, char const *s2)
+{
+	if ((!s1 && s2) || (s1 && !s2))
+		return (0);
+	if (!s1 && !s2)
+		return (1);
+	if (ft_strcmp(s1, s2) == 0)
+		return (1);
+	else
+		return (0);
+}
