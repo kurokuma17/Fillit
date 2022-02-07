@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/07 10:03:37 by trnguyen         ###   ########.fr       */
+/*   Created: 2021/12/11 19:23:32 by trnguyen          #+#    #+#             */
+/*   Updated: 2021/12/12 21:36:47 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct	s_tetri
+char	*ft_strndup(const char *s1, size_t n)
 {
-	int			x_coord[4];
-	int			y_coord[4];
-	char		c;
-	struct		s_tetri	*next;
-}				t_tetri;
+	char	*s2;
 
-#endif
+	s2 = (char *)malloc(sizeof(char) * (n + 1));
+	if (!s2)
+		return (NULL);
+	s2 = ft_strncpy(s2, s1, n);
+	s2[n] = '\0';
+	return (s2);
+}

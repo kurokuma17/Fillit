@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
+#    By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 13:04:07 by deelliot          #+#    #+#              #
-#    Updated: 2022/01/26 12:53:21 by deelliot         ###   ########.fr        #
+#    Updated: 2022/02/07 12:05:52 by trnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,13 @@ FUNCTIONS = ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr \
 	ft_strsplit ft_itoa ft_putchar ft_putstr ft_putendl ft_putnbr \
 	ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd ft_lstnew \
 	ft_lstdelone ft_lstdel ft_lstadd ft_lstiter ft_lstadd_back ft_lstmap \
+	ft_strndup get_next_line
 
 SRCS = $(foreach src, $(FUNCTIONS), $(addsuffix .c, $(src)))
 
 SRCSD = $(foreach src, $(SRCS), $(addprefix ./, $(src)))
 
-INCLS = libft.h
+INCLS = libft.h get_next_line.h
 
 OBJS = $(foreach obj, $(FUNCTIONS), $(addsuffix .o, $(obj)))
 
