@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+         #
+#    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 13:04:07 by deelliot          #+#    #+#              #
-#    Updated: 2022/02/07 12:05:52 by trnguyen         ###   ########.fr        #
+#    Updated: 2022/02/08 14:44:39 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS = $(foreach src, $(FUNCTIONS), $(addsuffix .c, $(src)))
 
 SRCSD = $(foreach src, $(SRCS), $(addprefix ./, $(src)))
 
-INCLS = libft.h get_next_line.h
+INCLS = libft.h
 
 OBJS = $(foreach obj, $(FUNCTIONS), $(addsuffix .o, $(obj)))
 

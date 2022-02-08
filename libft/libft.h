@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:25:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/07 12:06:16 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:44:19 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+
+# define BUFF_SIZE 8
+# define MAX_FD 4096
 
 typedef struct s_list
 {
@@ -90,5 +93,6 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void	ft_lstadd_back(t_list **alst, t_list *new);
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char	*ft_strndup(const char *s1, size_t n);
+int		get_next_line(const int fd, char **line);
 
 #endif
