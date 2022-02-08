@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/04 11:41:16 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:02:01 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_open_file(int fd, t_piece **pieces)
 
 	i = 0;
 	ret = read(fd, buf, 546)
-	if (ret <= 0 || ret == 546 || (ret + 1) % 21 != 0)
+	if (ret <= 0 || (ret + 1) % 21 != 0)
 		printf("error\n"); // error handling to go here
 	buf[ret + 1] = '\0';
 	while (i < ret)
