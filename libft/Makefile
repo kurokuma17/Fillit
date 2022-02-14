@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 13:04:07 by deelliot          #+#    #+#              #
-#    Updated: 2022/02/08 14:44:39 by deelliot         ###   ########.fr        #
+#    Updated: 2022/02/14 15:32:05 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FUNCTIONS = ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr \
 	ft_strsplit ft_itoa ft_putchar ft_putstr ft_putendl ft_putnbr \
 	ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd ft_lstnew \
 	ft_lstdelone ft_lstdel ft_lstadd ft_lstiter ft_lstadd_back ft_lstmap \
-	ft_strndup get_next_line
+	ft_strndup get_next_line ft_abs
 
 SRCS = $(foreach src, $(FUNCTIONS), $(addsuffix .c, $(src)))
 
@@ -54,3 +54,13 @@ fclean: clean
 re: fclean all
 
 .PHONY: all fclean clean re testcomp run retest
+
+testcomp: re
+	gcc $(FLAGS) $(INCLUDES) *test.c -L. -lft
+
+run: testcomp
+	./a.out
+
+retest: fclean run
+
+$(V).SILENT:

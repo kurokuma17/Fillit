@@ -3,44 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/07 12:03:58 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/02/14 16:56:25 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 #include <string.h>
-
-// t_tetri	**ft_create_tetri(char **pieces)
-// {
-	
-// }
-
-int	valid_tetri(char *piece)
-{
-	int	block_count;
-	int	empty_count;
-	int	newline_count;
-
-	block_count = 0;
-	empty_count = 0;
-	newline_count = 0;
-	while (*piece)
-	{
-		if (*piece == '#')
-			block_count++;
-		if (*piece == '.')
-			empty_count++;
-		if (*piece == '\n')
-			newline_count++;
-		piece++;
-	}
-	return (newline_count == 5 && block_count == 4 && empty_count == 12);
-}
-// still need to check if 4 blocks align as a valid tetrimino
 
 void	ft_open_file(int fd, char **pieces)
 {
@@ -50,36 +22,37 @@ void	ft_open_file(int fd, char **pieces)
 
 	i = 0;
 	ret = read(fd, buf, 546);
-	if (ret <= 0 || ret == 546 || (ret + 1) % 21 != 0)
-		printf("error\n"); // error handling to go here
+	if (ret <= 0 || (ret + 1) % 21 != 0)
+	{
+		printf("error in reading file\n"); // error handling to go here
+		exit(1);
+	}
+	buf[ret] = '\n';
 	buf[ret + 1] = '\0';
 	while (i < ret)
 	{
-		pieces[i/21] = strndup(&buf[i], 21);
-		//check for errors
+		pieces[i / 21] = strndup(&buf[i], 21);
+		if (ft_validate_tetri(pieces[i / 21], i / 21) == 1)
+		{
+			printf("tetri piece is valid\n");
+		}
+		else
+			printf("invalid piece\n"); // error handling here
 		i = i + 21;
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	*pieces[27];
 	int		fd;
 
 	if (argc != 2)
-	{
-		printf("too many files\n"); //this is where we should print usage
-		return (1);
-	}
+		return (ft_error("usage: ./fillit input_file"));
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-	{
-		printf("unable to open file\n"); //error handing to go here
-		return (1);
-	}
+		return (ft_error("unable to open file"));
 	ft_open_file(fd, pieces);
-	printf("%s", pieces[0]);
-	printf("%d", valid_tetri(pieces[0]));
-	//carry on with rest of functions
+	close(fd);
+	return (0);
 }
-
