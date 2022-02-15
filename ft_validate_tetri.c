@@ -47,6 +47,7 @@ t_tetri	*ft_create_tetri(char *tetri_str)
 	new_piece = (t_tetri *)malloc(sizeof(t_tetri));
 	if (!new_piece)
 		return (NULL);
+	new_piece->cells = 
 	while (*tetri_str != '\0')
 	{
 		c = *tetri_str;

@@ -28,5 +28,5 @@ int	ft_error(char *str, t_tetri **pieces)
 {
 	ft_free_pieces(pieces);
 	ft_putendl(str);
-	return (1);
+	exit(1);
 }
