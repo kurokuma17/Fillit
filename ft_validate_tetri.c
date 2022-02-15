@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/15 12:53:45 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/15 14:18:48 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ t_tetri	*ft_create_tetri(char *tetri_str)
 	new_piece = (t_tetri *)malloc(sizeof(t_tetri));
 	if (!new_piece)
 		return (NULL);
-	new_piece->cells = 
+	new_piece->cells = (char **)ft_memallocarray(4, 4);
+	if (new_piece->cells == NULL)
+		return (NULL);
 	while (*tetri_str != '\0')
 	{
 		c = *tetri_str;
