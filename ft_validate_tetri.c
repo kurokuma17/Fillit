@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/15 14:18:48 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:14:22 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ft_check_errors(char *tetri_str)
 			newline_count++;
 		tetri_str++;
 	}
+	printf("nl: %d\nempty: %d\nblocks: %d\n", newline_count, empty_count, block_count);
 	return (newline_count == 5 && block_count == 4 && empty_count == 12);
 }
 
@@ -63,6 +64,20 @@ t_tetri	*ft_create_tetri(char *tetri_str)
 		}
 		tetri_str++;
 	}
+	int i = 0;
+	int j = 0;
+
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			printf("%c", new_piece->cells[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 	return (new_piece);
 }
 
@@ -83,14 +98,14 @@ void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 			{
 				new_piece->x_coord[i] = x;
 				new_piece->y_coord[i] = y;
-				new_piece->c = 'A' + (piece_nbr - 1);
+				new_piece->c = 'A' + piece_nbr;
 				i++;
 			}
-			//printf("piece[%d][%d] = %d\n", x, y, piece[x][y]);
 			y++;
 		}
 		x++;
 	}
+	printf("new piece ch: %c\n", new_piece->c);
 }
 
 int	ft_check_alignment(t_tetri *new_piece)
@@ -108,6 +123,7 @@ int	ft_check_alignment(t_tetri *new_piece)
 			(new_piece->y_coord[i] - new_piece->y_coord[j]));
 		i++;
 	}
+	printf("count = %d\n", count);
 	return (count);
 }
 
@@ -118,7 +134,7 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces)
 	int		len;
 
 	i = 0;
-	len = ft_strlen(buf) + 1;
+	len = ft_strlen(buf);
 	while (i < len)
 	{
 		temp = ft_strndup(&buf[i], 21);
@@ -128,8 +144,11 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces)
 		if (pieces[i / 21] == NULL)
 			ft_error("unable to malloc", pieces);
 		ft_store_tetri(pieces[i / 21], i / 21);
-		if ((ft_check_alignment(pieces[i / 21]) < 3))
+		if ((ft_check_alignment(pieces[i / 21]) < 2))
 			ft_error("piece not aligned", pieces);
+		i += 21;
+		printf("i = %d\n", i);
+		printf("strlen = %d\n\n", len);
+
 	}
-	i = i + 21;
 }
