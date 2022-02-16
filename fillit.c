@@ -6,8 +6,9 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:36:09 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/14 15:25:59 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:34:19 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>

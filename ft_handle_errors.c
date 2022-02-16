@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:42:50 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 14:26:46 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:23:12 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // theorectically frees each piece of the struct, don't know how to test...
 
-void	ft_free_pieces(t_tetri **pieces)
+static void	ft_free_pieces(t_tetri **pieces)
 {
 	int	i;
 

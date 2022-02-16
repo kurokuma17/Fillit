@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 14:22:27 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:40:00 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_open_file(int fd, t_tetri **pieces)
 		ft_error("error in opening file", pieces);
 	buf[ret] = '\n';
 	buf[ret + 1] = '\0';
-	printf("file opened\n");
+	printf("\033[1;33mSTART\n\033[0m");
 	ft_validate_tetri(buf, pieces);
 }
 

@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/15 12:52:37 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:31:55 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ typedef struct s_tetri
 	char			c;
 }				t_tetri;
 
+typedef struct	s_grid
+{
+	int			nbr_pieces;
+}				t_grid;
+
 int		ft_error(char *str, t_tetri **pieces);
 void	ft_open_file(int fd, t_tetri **pieces);
 void	ft_validate_tetri(char *buf, t_tetri **pieces);
+int		ft_get_min_grid_size(t_tetri **pieces);
 
 #endif

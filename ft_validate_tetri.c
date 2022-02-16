@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 14:18:41 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:34:35 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //this function checks that there are the correct number of blocks
 // empty spaces and newlines
 
-int	ft_check_errors(char *tetri_str)
+static int	ft_check_errors(char *tetri_str)
 {
 	int	block_count;
 	int	empty_count;
@@ -35,14 +35,14 @@ int	ft_check_errors(char *tetri_str)
 			newline_count++;
 		tetri_str++;
 	}
-	printf("nl: %d\nempty: %d\nblocks: %d\n", newline_count, empty_count, block_count);
+	// printf("nl: %d\nempty: %d\nblocks: %d\n", newline_count, empty_count, block_count);
 	return (newline_count == 5 && block_count == 4 && empty_count == 12);
 }
 
 //this function assigns memory for each new tetrimoni struct, and converts the
 // buf str into a 2d array, which is saved in the struct
 
-t_tetri	*ft_create_tetri(char *tetri_str)
+static t_tetri	*ft_create_tetri(char *tetri_str)
 {
 	t_tetri	*new_piece;
 	int		row;
@@ -93,7 +93,7 @@ t_tetri	*ft_create_tetri(char *tetri_str)
 
 //this just fills in the remaining variables in the struct
 
-void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
+static void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 {
 	int		x;
 	int		y;
@@ -122,7 +122,7 @@ void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 
 // this checks that the pieces are correctly aligned
 
-int	ft_check_alignment(t_tetri *new_piece)
+static int	ft_check_alignment(t_tetri *new_piece)
 {
 	int	i;
 	int	j;
@@ -156,6 +156,7 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces)
 	int		i;
 	char	*temp;
 	int		len;
+	t_grid	grid;
 
 	i = 0;
 	len = ft_strlen(buf);
@@ -171,8 +172,7 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces)
 		if ((ft_check_alignment(pieces[i / 21]) < 3))
 			ft_error("piece not aligned", pieces);
 		i += 21;
-		printf("i = %d\n", i);
-		printf("strlen = %d\n\n", len);
-
 	}
+	grid.nbr_pieces = i/21;
+	printf("nbr of pieces = %d\n", grid.nbr_pieces);
 }
