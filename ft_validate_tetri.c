@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 13:14:22 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:11:02 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,15 +112,22 @@ int	ft_check_alignment(t_tetri *new_piece)
 {
 	int	i;
 	int	j;
-	int	count;
+	int temp;
+	int count;
 
 	i = 0;
-	j = i + 1;
 	count = 0;
-	while (i < 4)
+	while(i < 4)
 	{
-		count += ft_abs((new_piece->x_coord[i] - new_piece->x_coord[j]) + \
-			(new_piece->y_coord[i] - new_piece->y_coord[j]));
+		j = i + 1;
+		while (j < 4)
+		{
+			temp = (ft_abs((new_piece->x_coord[i]- new_piece->x_coord[j]))) + \
+			(ft_abs((new_piece->y_coord[i]- new_piece->y_coord[j])));
+			if (temp == 1)
+				count++;
+			j++;
+		}
 		i++;
 	}
 	printf("count = %d\n", count);
@@ -144,7 +151,7 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces)
 		if (pieces[i / 21] == NULL)
 			ft_error("unable to malloc", pieces);
 		ft_store_tetri(pieces[i / 21], i / 21);
-		if ((ft_check_alignment(pieces[i / 21]) < 2))
+		if ((ft_check_alignment(pieces[i / 21]) < 3))
 			ft_error("piece not aligned", pieces);
 		i += 21;
 		printf("i = %d\n", i);
