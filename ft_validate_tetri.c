@@ -6,12 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 14:11:02 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:18:41 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
+
+//this function checks that there are the correct number of blocks
+// empty spaces and newlines
 
 int	ft_check_errors(char *tetri_str)
 {
@@ -35,6 +38,9 @@ int	ft_check_errors(char *tetri_str)
 	printf("nl: %d\nempty: %d\nblocks: %d\n", newline_count, empty_count, block_count);
 	return (newline_count == 5 && block_count == 4 && empty_count == 12);
 }
+
+//this function assigns memory for each new tetrimoni struct, and converts the
+// buf str into a 2d array, which is saved in the struct
 
 t_tetri	*ft_create_tetri(char *tetri_str)
 {
@@ -64,6 +70,10 @@ t_tetri	*ft_create_tetri(char *tetri_str)
 		}
 		tetri_str++;
 	}
+
+	// this just prints the 2d array - just using for testing, we will remove
+	//it after :)
+
 	int i = 0;
 	int j = 0;
 
@@ -80,6 +90,8 @@ t_tetri	*ft_create_tetri(char *tetri_str)
 	}
 	return (new_piece);
 }
+
+//this just fills in the remaining variables in the struct
 
 void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 {
@@ -108,6 +120,8 @@ void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 	printf("new piece ch: %c\n", new_piece->c);
 }
 
+// this checks that the pieces are correctly aligned
+
 int	ft_check_alignment(t_tetri *new_piece)
 {
 	int	i;
@@ -133,6 +147,9 @@ int	ft_check_alignment(t_tetri *new_piece)
 	printf("count = %d\n", count);
 	return (count);
 }
+
+//loops through each piece in the file, checks for errors,
+// coverts str to 2d array, and then stores in it the struct
 
 void	ft_validate_tetri(char *buf, t_tetri **pieces)
 {
