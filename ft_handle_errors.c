@@ -6,11 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:42:50 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 13:13:02 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:20:20 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+// theorectically frees each piece of the struct - doesn't seem to be working
+// though.
 
 void	ft_free_pieces(t_tetri **pieces)
 {
@@ -22,6 +25,8 @@ void	ft_free_pieces(t_tetri **pieces)
 		free (pieces[i++]);
 	}
 }
+
+//once freed, writes the error message followed by a nl and exits
 
 int	ft_error(char *str, t_tetri **pieces)
 {
