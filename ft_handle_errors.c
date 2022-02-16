@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:42:50 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 14:23:44 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:26:46 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_free_pieces(t_tetri **pieces)
 	i = 0;
 	while (pieces[i])
 	{
-		free (pieces[i++]);
+		free (pieces[i]);
+		i++;
 	}
 }
 
