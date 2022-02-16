@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 14:10:39 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:22:27 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		ft_error("usage: ./fillit input_file", pieces);
+	ft_bzero(pieces, sizeof(t_tetri *) * 27);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		ft_error("unable to open file", pieces);
