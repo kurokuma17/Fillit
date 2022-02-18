@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 15:10:59 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/18 16:36:31 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static int	ft_check_errors(char *tetri_str)
 			newline_count++;
 		tetri_str++;
 	}
-	// printf("nl: %d\nempty: %d\nblocks: %d\n", newline_count, empty_count, block_count);
 	return (newline_count == 5 && block_count == 4 && empty_count == 12);
 }
 
@@ -70,24 +69,7 @@ static t_tetri	*ft_create_tetri(char *tetri_str)
 		}
 		tetri_str++;
 	}
-
-	// this just prints the 2d array - just using for testing, we will remove
-	//it after :)
-
-	int i = 0;
-	int j = 0;
-
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			printf("%c", new_piece->cells[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
+	ft_print_array(new_piece->cells);
 	return (new_piece);
 }
 
@@ -151,12 +133,11 @@ static int	ft_check_alignment(t_tetri *new_piece)
 //loops through each piece in the file, checks for errors,
 // coverts str to 2d array, and then stores in it the struct
 
-void	ft_validate_tetri(char *buf, t_tetri **pieces)
+void	ft_validate_tetri(char *buf, t_tetri **pieces, t_solution *solution)
 {
 	int		i;
 	char	*temp;
 	int		len;
-	t_grid	grid;
 
 	i = 0;
 	len = ft_strlen(buf);
@@ -164,15 +145,14 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces)
 	{
 		temp = ft_strndup(&buf[i], 21);
 		if (ft_check_errors(temp) != 1)
-			ft_error("error in tetri", pieces);
+			ft_error("error in tetri", pieces, solution);
 		pieces[i / 21] = ft_create_tetri(temp);
 		if (pieces[i / 21] == NULL)
-			ft_error("unable to malloc", pieces);
+			ft_error("unable to malloc", pieces, solution);
 		ft_store_tetri(pieces[i / 21], i / 21);
 		if ((ft_check_alignment(pieces[i / 21]) < 3))
-			ft_error("piece not aligned", pieces);
+			ft_error("piece not aligned", pieces, solution);
 		i += 21;
 	}
-	grid.nbr_pieces = i/21;
-	ft_get_grid_size(grid);
+	solution->nbr_pieces = i/21;
 }

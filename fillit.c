@@ -6,21 +6,27 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:36:09 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 15:11:03 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/18 16:12:58 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-void	ft_get_grid_size(t_grid grid)
+void	ft_get_grid_size(t_solution *solution)
 {
 	int cells;
 
-	cells = grid.nbr_pieces * 4;
+	cells = solution->nbr_pieces * 4;
 	if (ft_sqrt(cells) > 0)
-		grid.min_size = ft_sqrt(cells);
+		solution->min_size = ft_sqrt(cells);
 	else
-		grid.min_size = ft_find_next_sqrt(cells);
-	printf("min grid size = %d\n", grid.min_size);
+		solution->min_size = ft_find_next_sqrt(cells);
+	printf("min solution size = %d\n", solution->min_size);
+}
+
+void	ft_solve (t_solution *solution, t_tetri **pieces)
+{
+	ft_get_grid_size(solution);
+	printf("%c\n", pieces[1]->c);
 }

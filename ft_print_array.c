@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_errors.c                                 :+:      :+:    :+:   */
+/*   ft_print_array.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 15:42:50 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 16:11:37 by deelliot         ###   ########.fr       */
+/*   Created: 2022/02/18 16:31:46 by deelliot          #+#    #+#             */
+/*   Updated: 2022/02/18 16:38:27 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-// theorectically frees each piece of the struct, don't know how to test...
-
-static void	ft_free_pieces(t_tetri **pieces)
+void	ft_print_array(char **array)
 {
-	int	i;
+int i = 0;
+	int j = 0;
 
-	i = 0;
-	while (pieces[i])
+	while (i < 4)
 	{
-		free (pieces[i]);
+		j = 0;
+		while (j < 4)
+		{
+			ft_putchar(array[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
 		i++;
 	}
-}
-
-//once freed, writes the error message followed by a nl and exits
-
-int	ft_error(char *str, t_tetri **pieces, t_solution *solution)
-{
-	ft_free_pieces(pieces);
-	free (solution);
-	ft_putendl(str);
-	exit(1);
 }
