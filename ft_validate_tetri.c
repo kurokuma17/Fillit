@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/16 18:34:35 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/18 15:10:59 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,5 +174,5 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces)
 		i += 21;
 	}
 	grid.nbr_pieces = i/21;
-	printf("nbr of pieces = %d\n", grid.nbr_pieces);
+	ft_get_grid_size(grid);
 }

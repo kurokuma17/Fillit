@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   ft_find_next_sqrt.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:36:09 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 15:11:03 by deelliot         ###   ########.fr       */
+/*   Created: 2022/02/18 13:46:08 by deelliot          #+#    #+#             */
+/*   Updated: 2022/02/18 14:10:28 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
+#include "libft.h"
 
-void	ft_get_grid_size(t_grid grid)
+int	ft_find_next_sqrt(int nb)
 {
-	int cells;
+	int	res;
+	int	i;
+	int	sub;
 
-	cells = grid.nbr_pieces * 4;
-	if (ft_sqrt(cells) > 0)
-		grid.min_size = ft_sqrt(cells);
-	else
-		grid.min_size = ft_find_next_sqrt(cells);
-	printf("min grid size = %d\n", grid.min_size);
+	if (!nb || nb < 0)
+		return (0);
+	if (ft_sqrt(nb) != 0)
+		nb += 1;
+	res = nb;
+	i = 0;
+	sub = 1;
+	while (res > 0)
+	{
+		res -= sub;
+		sub += 2;
+		i += 1;
+	}
+	if (res < 0)
+		return (ft_sqrt(nb + (-res)));
+	return (i);
 }
