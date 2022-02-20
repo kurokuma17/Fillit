@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/20 16:47:59 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:42:23 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,18 +108,18 @@ static int	ft_check_alignment(t_tetri *new_piece)
 {
 	int	i;
 	int	j;
-	int temp;
-	int count;
+	int	temp;
+	int	count;
 
 	i = 0;
 	count = 0;
-	while(i < 4)
+	while (i < 4)
 	{
 		j = i + 1;
 		while (j < 4)
 		{
-			temp = (ft_abs((new_piece->x_coord[i]- new_piece->x_coord[j]))) + \
-			(ft_abs((new_piece->y_coord[i]- new_piece->y_coord[j])));
+			temp = (ft_abs((new_piece->x_coord[i] - new_piece->x_coord[j]))) + \
+			(ft_abs((new_piece->y_coord[i] - new_piece->y_coord[j])));
 			if (temp == 1)
 				count++;
 			j++;
@@ -154,5 +154,5 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces, t_solution *solution)
 			ft_error("piece not aligned", pieces, solution);
 		i += 21;
 	}
-	solution->nbr_pieces = i/21;
+	solution->nbr_pieces = i / 21;
 }

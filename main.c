@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 16:13:12 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:42:06 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	ft_open_file(int fd, t_tetri **pieces, t_solution *solution)
 
 int	main(int argc, char **argv)
 {
-	t_tetri	*pieces[27];
-	t_solution *solution;
-	int		fd;
+	t_tetri		*pieces[27];
+	t_solution	*solution;
+	int			fd;
 
 	ft_bzero(pieces, sizeof(t_tetri *) * 27);
 	solution = (t_solution *)malloc(sizeof(t_solution));
@@ -45,8 +45,8 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		ft_error("unable to open file", pieces, solution);
-	ft_open_file(fd, pieces ,solution);
+	ft_open_file(fd, pieces, solution);
 	close(fd);
-	ft_solve(solution, pieces);
+	ft_solve(pieces, solution);
 	return (0);
 }
