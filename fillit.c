@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:36:09 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 16:12:58 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:48:19 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ void	ft_get_grid_size(t_solution *solution)
 
 void	ft_solve (t_solution *solution, t_tetri **pieces)
 {
+	char **temp;
+	int	i;
+	int	j;
+	int x;
+
 	ft_get_grid_size(solution);
-	printf("%c\n", pieces[1]->c);
+	temp = (char **)ft_memallocarray(solution->min_size, solution->min_size);
+	if (!temp)
+		ft_error("unable to create temp", pieces, solution);
+
 }

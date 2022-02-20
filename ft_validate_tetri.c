@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 16:36:31 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:47:59 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,14 @@ static void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 			{
 				new_piece->x_coord[i] = x;
 				new_piece->y_coord[i] = y;
-				new_piece->c = 'A' + piece_nbr;
+				new_piece->ch = 'A' + piece_nbr;
 				i++;
 			}
 			y++;
 		}
 		x++;
 	}
-	printf("new piece ch: %c\n", new_piece->c);
+	printf("new piece ch: %c\n", new_piece->ch);
 }
 
 // this checks that the pieces are correctly aligned

@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 16:36:18 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:47:50 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_tetri
 	char			**cells;
 	int				x_coord[4];
 	int				y_coord[4];
-	char			c;
+	char			ch;
 }				t_tetri;
 
 typedef struct s_solution
