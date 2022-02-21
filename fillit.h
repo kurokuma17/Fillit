@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/21 11:48:34 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/21 11:53:23 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_solution
 int		ft_error(char *str, t_tetri **pieces, t_solution *solution);
 void	ft_open_file(int fd, t_tetri **pieces, t_solution *solution);
 void	ft_validate_tetri(char *buf, t_tetri **pieces, t_solution *solution);
+void	ft_get_min_grid_size(t_solution *solution);
 void	ft_find_height_width(t_tetri *piece);
 void	ft_translate_pieces(t_tetri **pieces, t_solution *solution);
-void	ft_get_min_grid_size(t_solution *solution);
 void	ft_solve(t_tetri **pieces, t_solution *solution);
 void	ft_print_array(char **array);
 void	ft_print_int_array(int *array);

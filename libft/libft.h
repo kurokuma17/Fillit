@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:25:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/18 14:12:17 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/21 12:41:51 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int		ft_abs(int i);
 void	**ft_memallocarray(size_t x, size_t y);
 int		ft_sqrt(int nb);
 int		ft_find_next_sqrt(int nb);
+int		ft_max(int x, int y);
 
 #endif

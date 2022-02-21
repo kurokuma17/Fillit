@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/21 11:39:33 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/21 12:49:58 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ void	ft_translate_pieces(t_tetri **pieces, t_solution *solution)
 	while (i < solution->nbr_pieces)
 	{
 		ft_find_height_width(pieces[i]);
+		if(solution->min_size < ft_max(pieces[i]->height, pieces[i]->width))
+		{
+			solution->min_size = ft_max(pieces[i]->height, pieces[i]->width);
+			printf("new min size = %d\n", solution->min_size);
+		}
 		ft_find_min(pieces[i]->x_coord);
 		ft_find_min(pieces[i]->y_coord);
 		i++;
