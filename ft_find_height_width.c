@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_array.c                                   :+:      :+:    :+:   */
+/*   ft_find_h_w.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 16:31:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/20 21:48:25 by deelliot         ###   ########.fr       */
+/*   Created: 2022/02/21 10:30:44 by deelliot          #+#    #+#             */
+/*   Updated: 2022/02/21 10:53:53 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
-void	ft_print_array(char **array)
+//find the max h and w of each tetrimoni and stores it in the struct
+
+void	ft_find_height_width(t_tetri *piece)
 {
 	int	i;
 	int	j;
 
 	i = 0;
+	piece->height = 0;
+	piece->width = 0;
 	while (i < 4)
 	{
-		j = 0;
+		j = i + 1;
 		while (j < 4)
 		{
-			ft_putchar(array[i][j]);
+			if (piece->height < ft_abs(piece->x_coord[i] - piece->x_coord[j]))
+				piece->height = ft_abs(piece->x_coord[i] - piece->x_coord[j]);
+			if (piece->width < ft_abs(piece->y_coord[i] - piece->y_coord[j]))
+				piece->width = ft_abs(piece->y_coord[i] - piece->y_coord[j]);
 			j++;
 		}
-		ft_putchar('\n');
 		i++;
 	}
-}
-
-void	ft_print_int_array(int *array)
-{
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		ft_putnbr(array[i]);
-		i++;
-	}
-	ft_putchar('\n');
+	piece->height += 1;
+	piece->width += 1;
 }

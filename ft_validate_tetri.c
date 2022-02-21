@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/20 18:42:23 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/21 11:49:20 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ static t_tetri	*ft_create_tetri(char *tetri_str)
 		}
 		tetri_str++;
 	}
-	ft_print_array(new_piece->cells);
 	return (new_piece);
 }
 
@@ -99,7 +98,6 @@ static void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 		}
 		x++;
 	}
-	printf("new piece ch: %c\n", new_piece->ch);
 }
 
 // this checks that the pieces are correctly aligned
@@ -126,7 +124,6 @@ static int	ft_check_alignment(t_tetri *new_piece)
 		}
 		i++;
 	}
-	printf("count = %d\n", count);
 	return (count);
 }
 
