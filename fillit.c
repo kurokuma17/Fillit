@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:36:09 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/21 11:48:35 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/21 13:12:52 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_get_min_grid_size(t_solution *solution)
 		solution->min_size = ft_sqrt(cells);
 	else
 		solution->min_size = ft_find_next_sqrt(cells);
-	printf("min solution size = %d\n", solution->min_size);
 }
 
 void	ft_solve(t_tetri **pieces, t_solution *solution)
@@ -55,6 +54,9 @@ void	ft_solve(t_tetri **pieces, t_solution *solution)
 		}
 		i++;
 	}
+
+	//just prints out current solution
+
 	i = 0;
 	while (i < solution->min_size)
 	{

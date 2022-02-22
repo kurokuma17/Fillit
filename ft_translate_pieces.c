@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/21 12:49:58 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/21 12:55:53 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	ft_find_min(int *array)
 	}
 }
 
-// moves the pieces to the top most left area possible
+// moves the pieces to the top most left area possible, and checks if the min
+//size is smaller than the max width/height of individual piece
 
 void	ft_translate_pieces(t_tetri **pieces, t_solution *solution)
 {
