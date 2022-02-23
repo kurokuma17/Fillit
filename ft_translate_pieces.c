@@ -6,15 +6,29 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/21 12:55:53 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:33:42 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
+void	ft_translate_array (int *array, int nbr)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		array[i] += nbr;
+		printf("%d, ", array[i]);
+		i++;
+	}
+	printf("\n");
+}
+
 //this function finds the lowest value in the array, and subtracts it from
-//each element in the array.
+//each element in the array with the translate array function above.
 
 void	ft_find_min(int *array)
 {
@@ -29,12 +43,7 @@ void	ft_find_min(int *array)
 			min = array[i + 1];
 		i++;
 	}
-	i = 0;
-	while (i < 4)
-	{
-		array[i] -= min;
-		i++;
-	}
+	ft_translate_array(array, (-min));
 }
 
 // moves the pieces to the top most left area possible, and checks if the min
