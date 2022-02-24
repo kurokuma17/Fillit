@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/23 10:33:42 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/24 09:39:31 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void	ft_translate_array (int *array, int nbr)
 	while (i < 4)
 	{
 		array[i] += nbr;
-		printf("%d, ", array[i]);
 		i++;
 	}
-	printf("\n");
 }
 
 //this function finds the lowest value in the array, and subtracts it from
