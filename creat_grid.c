@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creat_grid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/02/24 01:57:20 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/02/25 11:00:31 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,34 @@
 #include <stdio.h>
 
 // malloc char array for grid and fill it with '.'
-void	ft_creat_grid(t_solution *solution)
+
+void	ft_free_grid(t_solution *solution, int inc)
+{
+	int	i;
+
+	i = 0;
+	while (i < (inc - 1))
+	{
+		free (solution->grid[i]);
+		i++;
+	}
+
+}
+
+void	ft_create_grid(t_solution *solution, int inc)
 {
 	int	i;
 
 	i = 0;
 	if (solution)
 	{
-		solution->grid = (char **)ft_memallocarray(solution->min_size, \
-		solution->min_size);
-		while (i < solution->min_size)
+		if (solution->grid)
+			ft_free_grid(solution, inc);
+		solution->grid = (char **)ft_memallocarray(solution->min_size + inc, \
+		solution->min_size + inc);
+		while (i < solution->min_size + inc)
 		{
-			ft_memset(solution->grid[i], '.', solution->min_size);
+			ft_memset(solution->grid[i], '.', solution->min_size + inc);
 			i++;
 		}
 	}
@@ -64,7 +80,7 @@ int	ft_check_bottom(int size, t_tetri *piece)
 	int i;
 
 	i = 0;
-	while (i < 4 && piece->y_coord[i] < size)
+	while (i < 4 && piece->x_coord[i] < size)
 		i++;
 	if (i == 4)
 		return (1);
@@ -78,7 +94,7 @@ int	ft_check_right(int size, t_tetri *piece)
 	int i;
 
 	i = 0;
-	while (i < 4 && piece->x_coord[i] < size)
+	while (i < 4 && piece->y_coord[i] < size)
 		i++;
 	if (i == 4)
 		return (1);
@@ -86,7 +102,7 @@ int	ft_check_right(int size, t_tetri *piece)
 		return (0);
 }
 
-// move the tetri horizontally 
+// move the tetri horizontally
 // y < 0: move left, y > 0: move right
 void	ft_move_horizontal(t_solution *solution, t_tetri *piece, int y)
 {
@@ -97,7 +113,7 @@ void	ft_move_horizontal(t_solution *solution, t_tetri *piece, int y)
 	}
 }
 
-// move the tetri vertically 
+// move the tetri vertically
 // x < 0: move up, x > 0: move down
 void	ft_move_vertical(t_solution *solution, t_tetri *piece, int x)
 {
