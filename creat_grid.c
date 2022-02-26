@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/02/25 11:00:31 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:30:06 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,9 @@ int	ft_check_bottom(int size, t_tetri *piece)
 	if (i == 4)
 		return (1);
 	else
+	{
 		return (0);
+	}
 }
 
 // check whether the piece will overflow the right-most line
@@ -106,10 +108,13 @@ int	ft_check_right(int size, t_tetri *piece)
 // y < 0: move left, y > 0: move right
 void	ft_move_horizontal(t_solution *solution, t_tetri *piece, int y)
 {
-	if (solution && piece)
+	int i;
+
+	i = 0;
+	while (solution && piece && i < 4)
 	{
-		for (int i = 0; i < 4; i++)
-			piece->y_coord[i] += y;
+		piece->y_coord[i] += y;
+		i++;
 	}
 }
 
@@ -117,9 +122,12 @@ void	ft_move_horizontal(t_solution *solution, t_tetri *piece, int y)
 // x < 0: move up, x > 0: move down
 void	ft_move_vertical(t_solution *solution, t_tetri *piece, int x)
 {
-	if (solution && piece)
+	int i;
+
+	i = 0;
+	while (solution && piece && i < 4)
 	{
-		for (int i = 0; i < 4; i++)
-			piece->x_coord[i] += x;
+		piece->x_coord[i] += x;
+		i++;
 	}
 }
