@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/24 10:15:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/26 20:51:18 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_translate_array (int *array, int nbr)
 //this function finds the lowest value in the array, and subtracts it from
 //each element in the array with the translate array function above.
 
-void	ft_find_min(int *array)
+void	ft_move_top_left(int *array)
 {
 	int	min;
 	int	i;
@@ -54,14 +54,8 @@ void	ft_translate_pieces(t_tetri **pieces, t_solution *solution)
 	i = 0;
 	while (i < solution->nbr_pieces)
 	{
-		ft_find_height_width(pieces[i]);
-		if(solution->min_size < ft_max(pieces[i]->height, pieces[i]->width))
-		{
-			solution->min_size = ft_max(pieces[i]->height, pieces[i]->width);
-			printf("new min size = %d\n", solution->min_size);
-		}
-		ft_find_min(pieces[i]->x_coord);
-		ft_find_min(pieces[i]->y_coord);
+		ft_move_top_left(pieces[i]->x_coord);
+		ft_move_top_left(pieces[i]->y_coord);
 		i++;
 	}
 }

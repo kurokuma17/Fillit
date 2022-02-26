@@ -39,3 +39,20 @@ void	ft_find_height_width(t_tetri *piece)
 	piece->height += 1;
 	piece->width += 1;
 }
+
+void ft_set_height_width(t_tetri **pieces, t_solution *solution)
+{
+	int	i;
+
+	i = 0;
+	while (i < solution->nbr_pieces)
+	{
+		ft_find_height_width(pieces[i]);
+		if(solution->min_size < ft_max(pieces[i]->height, pieces[i]->width))
+		{
+			solution->min_size = ft_max(pieces[i]->height, pieces[i]->width);
+			printf("new min size = %d\n", solution->min_size);
+		}
+		i++;
+	}
+}
