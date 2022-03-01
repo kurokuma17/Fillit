@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   clear_grid.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/01 08:59:43 by deelliot          #+#    #+#             */
+/*   Updated: 2022/03/01 08:59:59 by deelliot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	ft_reset_grid(t_solution *solution, int inc)
 {
 	int	i;
@@ -27,10 +39,9 @@ void	remove_piece(t_tetri *piece, t_solution *solution)
 		solution->grid[piece->x_coord[i]][piece->y_coord[i]] = '.';
 		i++;
 	}
-
 }
 
-void  move_prev_piece(t_tetri **pieces, t_solution *solution, int inc, int i)
+void  move_prev_piece(t_tetri **pieces, t_solution *solution, int i)
 {
 	remove_piece(pieces[p - 1], solution);
 	ft_move_horizontal(solution, pieces[p - 1], i);
