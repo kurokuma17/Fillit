@@ -6,34 +6,12 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/26 21:55:20 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:24:41 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
-
-int	ft_check_if_fit(t_tetri *piece, t_solution *solution, int inc)
-{
-	if (ft_check_right(solution->min_size + inc, piece) == 1 && \
-		ft_check_bottom(solution->min_size + inc, piece) == 1 && \
-		ft_check_next_spot(solution, piece) == 1)
-		return (1);
-	else
-		return (0);
-}
-
-void	ft_reset_grid(t_solution *solution, int inc)
-{
-	int	i;
-
-	i = 0;
-	while (i < solution->min_size + inc)
-	{
-		ft_memset(solution->grid[i], '.', solution->min_size + inc);
-		i++;
-	}
-}
 
 void	move_first_piece(t_tetri **pieces, t_solution *solution, int inc, int i)
 {
@@ -60,6 +38,8 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution, int inc)
 			hor_count = 0;
 			vert_count = 0;
 			ft_place_piece(solution, pieces[p], pieces[p]->ch);
+			// ft_print_array(solution->grid, solution->min_size + inc);
+			// printf("\n\n");
 			p++;
 		}
 		else

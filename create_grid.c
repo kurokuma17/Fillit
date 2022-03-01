@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/01 08:56:02 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:08:05 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 #include <stdio.h>
 
 // malloc char array for grid and fill it with '.'
+
+void	ft_get_min_grid_size(t_solution *solution)
+{
+	int	cells;
+
+	cells = solution->nbr_pieces * 4;
+	if (ft_sqrt(cells) > 0)
+		solution->min_size = ft_sqrt(cells);
+	else
+		solution->min_size = ft_find_next_sqrt(cells);
+}
 
 void	ft_free_grid(t_solution *solution, int inc)
 {
@@ -25,7 +36,18 @@ void	ft_free_grid(t_solution *solution, int inc)
 		free (solution->grid[i]);
 		i++;
 	}
+}
 
+void	ft_reset_grid(t_solution *solution, int inc)
+{
+	int	i;
+
+	i = 0;
+	while (i < solution->min_size + inc)
+	{
+		ft_memset(solution->grid[i], '.', solution->min_size + inc);
+		i++;
+	}
 }
 
 void	ft_create_grid(t_solution *solution, int inc)
@@ -60,50 +82,28 @@ void	ft_place_piece(t_solution *solution, t_tetri *piece, char ch)
 	}
 }
 
-// check whether the grid has place for the piece
-int ft_check_next_spot(t_solution *solution, t_tetri *piece)
+void ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p)
 {
-	int i;
-
-	i = 0;
-	while (i < 4 && solution->grid[piece->x_coord[i]][piece->y_coord[i]] == '.')
-		i++;
-	if (i == 4)
-		return (1);
-	else
-		return (0);
-}
-
-// check whether the piece will overflow the bottom-most line
-int	ft_check_bottom(int size, t_tetri *piece)
-{
-	int i;
-
-	i = 0;
-	while (i < 4 && piece->x_coord[i] < size)
-		i++;
-	if (i == 4)
-		return (1);
-	else
+	int	j;
+	int x;
+	int y;
+	t_tetri *piece;
+	while (i > 0)
 	{
-		return (0);
+		j = 0;
+		p -= i;
+		piece = pieces[p];
+		printf("P: %c\n", piece->ch);
+		while (j < 4)
+		{
+			x = piece->x_coord[j];
+			y = piece->y_coord[j];
+			printf("%c\n", solution->grid[x][y]);
+			j++;
+		}
+		i--;
 	}
 }
-
-// check whether the piece will overflow the right-most line
-int	ft_check_right(int size, t_tetri *piece)
-{
-	int i;
-
-	i = 0;
-	while (i < 4 && piece->y_coord[i] < size)
-		i++;
-	if (i == 4)
-		return (1);
-	else
-		return (0);
-}
-
 // move the tetri horizontally
 // y < 0: move left, y > 0: move right
 void	ft_move_horizontal(t_solution *solution, t_tetri *piece, int y)

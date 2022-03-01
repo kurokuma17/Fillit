@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 10:36:32 by deelliot          #+#    #+#              #
-#    Updated: 2022/02/26 21:23:40 by deelliot         ###   ########.fr        #
+#    Updated: 2022/03/01 16:24:43 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = fillit
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = fillit.c ft_validate_tetri.c main.c ft_handle_errors.c \
-	ft_print_array.c ft_translate_pieces.c ft_find_height_width.c \
-	create_grid.c ft_solve.c
+SRCS = main.c ft_handle_errors.c ft_validate_tetri.c create_grid.c \
+	ft_find_height_width.c ft_translate_pieces.c ft_check_fit.c \
+	ft_solve.c ft_print_array.c
 
 INCLS = fillit.h
 
