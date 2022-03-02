@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_grid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/02 12:54:57 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:11:42 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ void	ft_get_min_grid_size(t_solution *solution)
 		solution->min_size = ft_sqrt(cells);
 	else
 		solution->min_size = ft_find_next_sqrt(cells);
-
-	printf("solution min size = %d\n", solution->min_size);
-
 }
 
 void	ft_free_grid(t_solution *solution)
@@ -135,12 +132,12 @@ void	ft_move_vertical(t_solution *solution, t_tetri *piece, int x)
 	}
 }
 
-void	ft_shift_tetri(t_tetri *piece, int y, int x)
+void	ft_shift_tetri(t_solution *solution, t_tetri *piece, int y, int x)
 {
 	int i;
 
 	i = 0;
-	while (i < 4)
+	while (solution && piece && i < 4)
 	{
 		piece->y_coord[i] += y;
 		piece->x_coord[i] += x;

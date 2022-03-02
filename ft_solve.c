@@ -6,25 +6,18 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/02 14:42:39 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:20:16 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-void	move_first_piece(t_tetri **pieces, t_solution *solution, int count, int x)
+void	ft_backtrack(t_tetri **pieces, t_solution *solution, int p, int y, int x)
 {
 	ft_reset_grid(solution);
 	ft_translate_pieces(pieces, solution);
-	ft_move_horizontal(solution, pieces[x], count);
-}
-
-void	move_piece_vert(t_tetri **pieces, t_solution *solution, int count, int x)
-{
-	ft_reset_grid(solution);
-	ft_translate_pieces(pieces, solution);
-	ft_move_vertical(solution, pieces[x], count);
+	ft_shift_tetri(solution, pieces[p], y, x);
 }
 
 int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
@@ -46,7 +39,7 @@ int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
 			hor_count = 0;
 			if (vert_count == solution->min_size)
 			{
-				ft_move_vertical(solution, piece, - solution->min_size);
+				ft_move_vertical(solution, piece, - (solution->min_size));
 				return (0);
 			}
 		}
@@ -57,7 +50,7 @@ int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
 int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 {
 	int	p;
-	int i;
+	int	i;
 	int	count;
 	int	vert_count;
 
@@ -80,14 +73,15 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 				continue ;
 			else
 			{
+				printf("p = %d\n", p);
 				p = 0;
 				count++;
-				move_first_piece(pieces, solution, count, p + i);
+				ft_backtrack(pieces, solution, p + i, count, vert_count);
 				if (count == solution->min_size)
 				{
 					count = 0;
 					vert_count++;
-					move_piece_vert(pieces, solution, vert_count, p + i);
+					ft_backtrack(pieces, solution, p + i, count, vert_count);
 					if (vert_count == solution->min_size)
 					{
 						count = 0;
@@ -103,7 +97,7 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 	return (1);
 }
 
-void ft_solve(t_tetri **pieces, t_solution *solution)
+void	ft_solve(t_tetri **pieces, t_solution *solution)
 {
 	ft_create_grid(solution);
 	while (ft_check_if_solved(pieces, solution) == 0)
