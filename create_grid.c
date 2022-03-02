@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_grid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/02 12:41:03 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:54:57 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,19 @@ void	ft_move_vertical(t_solution *solution, t_tetri *piece, int x)
 	i = 0;
 	while (solution && piece && i < 4)
 	{
+		piece->x_coord[i] += x;
+		i++;
+	}
+}
+
+void	ft_shift_tetri(t_tetri *piece, int y, int x)
+{
+	int i;
+
+	i = 0;
+	while (i < 4)
+	{
+		piece->y_coord[i] += y;
 		piece->x_coord[i] += x;
 		i++;
 	}
