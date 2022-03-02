@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/02 12:21:05 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:41:26 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
 	{
 		ft_move_horizontal(solution, piece, 1);
 		hor_count++;
-		if (hor_count == solution->min_size + solution->inc)
+		if (hor_count == solution->min_size)
 		{
-			ft_move_horizontal(solution, piece, - (solution->min_size + solution->inc));
+			ft_move_horizontal(solution, piece, - (solution->min_size));
 			ft_move_vertical(solution, piece, 1);
 			vert_count++;
 			hor_count = 0;
-			if (vert_count == solution->min_size + solution->inc)
+			if (vert_count == solution->min_size)
 			{
-				ft_move_vertical(solution, piece, - (solution->min_size + solution->inc));
+				ft_move_vertical(solution, piece, - solution->min_size);
 				return (0);
 			}
 		}
@@ -61,6 +61,8 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 		if (ft_check_if_fit(pieces[p], solution) == 1)
 		{
 			ft_place_piece(solution, pieces[p], pieces[p]->ch);
+			ft_print_array(solution->grid, solution->min_size);
+			printf("\n\n");
 			p++;
 		}
 		else
@@ -72,7 +74,7 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 				p = 0;
 				count++;
 				move_first_piece(pieces, solution, count, p + i);
-				if (count == solution->min_size + solution->inc)
+				if (count == solution->min_size)
 					count = 0;
 					i++;
 				if (i == solution->nbr_pieces)
@@ -85,15 +87,15 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 
 void ft_solve(t_tetri **pieces, t_solution *solution)
 {
-	solution->inc = 0;
 	ft_create_grid(solution);
 	while (ft_check_if_solved(pieces, solution) == 0)
 	{
-		solution->inc += 1;
+		solution->min_size += 1;
+		printf("solution size increased to: %d\n", solution->min_size);
 		ft_translate_pieces(pieces, solution);
 		ft_create_grid(solution);
 	}
-	printf("smallest square = %d\n", solution->min_size + solution->inc);
-	ft_print_array(solution->grid, solution->min_size + solution->inc);
+	printf("smallest square = %d\n", solution->min_size);
+	ft_print_array(solution->grid, solution->min_size);
 	ft_free_grid(solution);
 }

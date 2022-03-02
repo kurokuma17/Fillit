@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/02 12:17:42 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:40:24 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_solution
 {
 	int			nbr_pieces;
 	int			min_size;
-	int			inc;
 	char		**grid;
 }				t_solution;
 

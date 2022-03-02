@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/02 12:20:43 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:41:03 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	ft_get_min_grid_size(t_solution *solution)
 		solution->min_size = ft_sqrt(cells);
 	else
 		solution->min_size = ft_find_next_sqrt(cells);
+
+	printf("solution min size = %d\n", solution->min_size);
+
 }
 
 void	ft_free_grid(t_solution *solution)
@@ -31,7 +34,7 @@ void	ft_free_grid(t_solution *solution)
 	int	i;
 
 	i = 0;
-	while (i < (solution->inc - 1))
+	while (i < (solution->min_size - 1))
 	{
 		free (solution->grid[i]);
 		i++;
@@ -43,9 +46,9 @@ void	ft_reset_grid(t_solution *solution)
 	int	i;
 
 	i = 0;
-	while (i < solution->min_size + solution->inc)
+	while (i < solution->min_size)
 	{
-		ft_memset(solution->grid[i], '.', solution->min_size + solution->inc);
+		ft_memset(solution->grid[i], '.', solution->min_size);
 		i++;
 	}
 }
@@ -59,11 +62,11 @@ void	ft_create_grid(t_solution *solution)
 	{
 		if (solution->grid)
 			ft_free_grid(solution);
-		solution->grid = (char **)ft_memallocarray(solution->min_size + solution->inc, \
-		solution->min_size + solution->inc);
-		while (i < solution->min_size + solution->inc)
+		solution->grid = (char **)ft_memallocarray(solution->min_size, \
+		solution->min_size);
+		while (i < solution->min_size)
 		{
-			ft_memset(solution->grid[i], '.', solution->min_size + solution->inc);
+			ft_memset(solution->grid[i], '.', solution->min_size);
 			i++;
 		}
 	}
