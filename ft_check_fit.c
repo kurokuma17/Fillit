@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:06:24 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/01 10:25:05 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:16:47 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int ft_check_next_spot(t_solution *solution, t_tetri *piece)
 		return (0);
 }
 
-int	ft_check_if_fit(t_tetri *piece, t_solution *solution, int inc)
+int	ft_check_if_fit(t_tetri *piece, t_solution *solution)
 {
-	if (ft_check_right(solution->min_size + inc, piece) == 1 && \
-		ft_check_bottom(solution->min_size + inc, piece) == 1 && \
+	if (ft_check_right(solution->min_size + solution->inc, piece) == 1 && \
+		ft_check_bottom(solution->min_size + solution->inc, piece) == 1 && \
 		ft_check_next_spot(solution, piece) == 1)
 		return (1);
 	else
