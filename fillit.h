@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/01 16:24:32 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:00:53 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_move_horizontal(t_solution *solution, t_tetri *piece, int y);
 void	ft_move_vertical(t_solution *solution, t_tetri *piece, int x);
 void	ft_free_grid(t_solution *solution, int inc);
 void	ft_reset_grid(t_solution *solution, int inc);
-void	move_first_piece(t_tetri **pieces, t_solution *solution, int inc, int i);
+void	move_first_piece(t_tetri **pieces, t_solution *solution, int inc, int count, int x);
 void	ft_solve(t_tetri **pieces, t_solution *solution);
 
 int	solver(t_solution *solution, t_tetri **pieces);

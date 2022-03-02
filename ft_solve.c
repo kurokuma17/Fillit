@@ -6,18 +6,25 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/02 11:49:56 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:04:24 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-void	move_first_piece(t_tetri **pieces, t_solution *solution, int inc, int i)
+// void	move_first_piece(t_tetri **pieces, t_solution *solution, int inc, int i)
+// {
+// 	ft_reset_grid(solution, inc);
+// 	ft_translate_pieces(pieces, solution);
+// 	ft_move_horizontal(solution, pieces[0], i);
+// }
+
+void	move_first_piece(t_tetri **pieces, t_solution *solution, int inc, int count, int x)
 {
 	ft_reset_grid(solution, inc);
 	ft_translate_pieces(pieces, solution);
-	ft_move_horizontal(solution, pieces[0], i);
+	ft_move_horizontal(solution, pieces[x], count);
 }
 
 int	ft_move_until_fit(t_tetri *piece, t_solution *solution, int inc)
@@ -50,10 +57,12 @@ int	ft_move_until_fit(t_tetri *piece, t_solution *solution, int inc)
 int	ft_check_if_solved(t_tetri **pieces, t_solution *solution, int inc)
 {
 	int	p;
-	int	first_piece;
+	int i;
+	int	count;
 
-	first_piece = 0;
 	p = 0;
+	i = 0;
+	count = 0;
 	while (p < solution->nbr_pieces)
 	{
 		if (ft_check_if_fit(pieces[p], solution, inc) == 1)
@@ -68,9 +77,12 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution, int inc)
 			else
 			{
 				p = 0;
-				first_piece++;
-				move_first_piece(pieces, solution, inc, first_piece);
-				if (first_piece == solution->min_size + inc)
+				count++;
+				move_first_piece(pieces, solution, inc, count, p + i);
+				if (count == solution->min_size + inc)
+					count = 0;
+					i++;
+				if (i == solution->nbr_pieces)
 					return (0);
 			}
 		}
