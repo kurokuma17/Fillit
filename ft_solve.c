@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/02 12:41:26 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:42:39 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ void	move_first_piece(t_tetri **pieces, t_solution *solution, int count, int x)
 	ft_reset_grid(solution);
 	ft_translate_pieces(pieces, solution);
 	ft_move_horizontal(solution, pieces[x], count);
+}
+
+void	move_piece_vert(t_tetri **pieces, t_solution *solution, int count, int x)
+{
+	ft_reset_grid(solution);
+	ft_translate_pieces(pieces, solution);
+	ft_move_vertical(solution, pieces[x], count);
 }
 
 int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
@@ -52,10 +59,12 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 	int	p;
 	int i;
 	int	count;
+	int	vert_count;
 
 	p = 0;
 	i = 0;
 	count = 0;
+	vert_count = 0;
 	while (p < solution->nbr_pieces)
 	{
 		if (ft_check_if_fit(pieces[p], solution) == 1)
@@ -75,10 +84,19 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 				count++;
 				move_first_piece(pieces, solution, count, p + i);
 				if (count == solution->min_size)
+				{
 					count = 0;
-					i++;
-				if (i == solution->nbr_pieces)
-					return (0);
+					vert_count++;
+					move_piece_vert(pieces, solution, vert_count, p + i);
+					if (vert_count == solution->min_size)
+					{
+						count = 0;
+						vert_count = 0;
+						i++;
+						if (i == solution->nbr_pieces)
+							return (0);
+					}
+				}
 			}
 		}
 	}
