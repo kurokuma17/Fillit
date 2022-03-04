@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/02 12:40:22 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:14:39 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 	ft_open_file(fd, pieces, solution);
 	close(fd);
 	ft_get_min_grid_size(solution);
-	ft_set_height_width(pieces, solution);
 	ft_translate_pieces(pieces, solution);
 	ft_solve(pieces, solution);
 	return (0);
