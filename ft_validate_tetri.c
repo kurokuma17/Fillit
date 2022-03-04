@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/01 10:24:59 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:01:58 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static t_tetri	*ft_create_tetri(char *tetri_str)
 	t_tetri	*new_piece;
 	int		row;
 	int		col;
-	char	c;
 
 	row = 0;
 	col = 0;
@@ -54,15 +53,14 @@ static t_tetri	*ft_create_tetri(char *tetri_str)
 	if (!new_piece)
 		return (NULL);
 	new_piece->cells = (char **)ft_memallocarray(4, 4);
-	if (new_piece->cells == NULL)
+	if (!new_piece)
 		return (NULL);
 	while (*tetri_str != '\0')
 	{
-		c = *tetri_str;
-		if (c != '\n')
-			new_piece->cells[row][col] = c;
+		if (*tetri_str != '\n')
+			new_piece->cells[row][col] = *tetri_str;
 		col++;
-		if (c == '\n')
+		if (*tetri_str == '\n')
 		{
 			row++;
 			col = 0;
