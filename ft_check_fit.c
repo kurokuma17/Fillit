@@ -6,17 +6,17 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:06:24 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/02 12:40:23 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:39:42 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-// check whether the piece will overflow the right-most line
+/* check whether the piece will overflow the right-most line */
 int	ft_check_right(int size, t_tetri *piece)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4 && piece->y_coord[i] < size)
@@ -27,10 +27,10 @@ int	ft_check_right(int size, t_tetri *piece)
 		return (0);
 }
 
-// check whether the piece will overflow the bottom-most line
+/* check whether the piece will overflow the bottom-most line */
 int	ft_check_bottom(int size, t_tetri *piece)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4 && piece->x_coord[i] < size)
@@ -43,10 +43,10 @@ int	ft_check_bottom(int size, t_tetri *piece)
 	}
 }
 
-// check whether the grid has place for the piece
-int ft_check_next_spot(t_solution *solution, t_tetri *piece)
+/* check whether the grid has place for the piece */
+int	ft_check_next_spot(t_solution *solution, t_tetri *piece)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4 && solution->grid[piece->x_coord[i]][piece->y_coord[i]] == '.')
