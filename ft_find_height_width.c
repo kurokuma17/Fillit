@@ -15,44 +15,44 @@
 
 //find the max h and w of each tetrimoni and stores it in the struct
 
-void	ft_find_height_width(t_tetri *piece)
-{
-	int	i;
-	int	j;
+// void	ft_find_height_width(t_tetri *piece)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	piece->height = 0;
-	piece->width = 0;
-	while (i < 4)
-	{
-		j = i + 1;
-		while (j < 4)
-		{
-			if (piece->height < ft_abs(piece->x_coord[i] - piece->x_coord[j]))
-				piece->height = ft_abs(piece->x_coord[i] - piece->x_coord[j]);
-			if (piece->width < ft_abs(piece->y_coord[i] - piece->y_coord[j]))
-				piece->width = ft_abs(piece->y_coord[i] - piece->y_coord[j]);
-			j++;
-		}
-		i++;
-	}
-	piece->height += 1;
-	piece->width += 1;
-}
+// 	i = 0;
+// 	piece->height = 0;
+// 	piece->width = 0;
+// 	while (i < 4)
+// 	{
+// 		j = i + 1;
+// 		while (j < 4)
+// 		{
+// 			if (piece->height < ft_abs(piece->x_coord[i] - piece->x_coord[j]))
+// 				piece->height = ft_abs(piece->x_coord[i] - piece->x_coord[j]);
+// 			if (piece->width < ft_abs(piece->y_coord[i] - piece->y_coord[j]))
+// 				piece->width = ft_abs(piece->y_coord[i] - piece->y_coord[j]);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	piece->height += 1;
+// 	piece->width += 1;
+// }
 
-void ft_set_height_width(t_tetri **pieces, t_solution *solution)
-{
-	int	i;
+// void ft_set_height_width(t_tetri **pieces, t_solution *solution)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i < solution->nbr_pieces)
-	{
-		ft_find_height_width(pieces[i]);
-		if(solution->min_size < ft_max(pieces[i]->height, pieces[i]->width))
-		{
-			solution->min_size = ft_max(pieces[i]->height, pieces[i]->width);
-			printf("new min size = %d\n", solution->min_size);
-		}
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < solution->nbr_pieces)
+// 	{
+// 		ft_find_height_width(pieces[i]);
+// 		if(solution->min_size < ft_max(pieces[i]->height, pieces[i]->width))
+// 		{
+// 			solution->min_size = ft_max(pieces[i]->height, pieces[i]->width);
+// 			printf("new min size = %d\n", solution->min_size);
+// 		}
+// 		i++;
+// 	}
+// }
