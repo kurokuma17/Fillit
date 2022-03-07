@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/04 15:01:58 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/07 21:11:19 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,13 +140,13 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces, t_solution *solution)
 	{
 		temp = ft_strndup(&buf[i], 21);
 		if (ft_check_errors(temp) != 1)
-			ft_error("error in tetri", pieces, solution);
+			ft_error("error", pieces, solution);
 		pieces[i / 21] = ft_create_tetri(temp);
 		if (pieces[i / 21] == NULL)
-			ft_error("unable to malloc", pieces, solution);
+			ft_error("error", pieces, solution);
 		ft_store_tetri(pieces[i / 21], i / 21);
 		if ((ft_check_alignment(pieces[i / 21]) < 3))
-			ft_error("piece not aligned", pieces, solution);
+			ft_error("error", pieces, solution);
 		i += 21;
 	}
 	solution->nbr_pieces = i / 21;

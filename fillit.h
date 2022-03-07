@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/04 15:31:41 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:53:24 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	ft_move_top_left(int *array);
 void	ft_print_array(char **array, int size);
 void	ft_print_int_array(int *array);
 void	ft_create_grid(t_solution *solution);
+int		ft_check_right(int size, t_tetri *piece);
+int		ft_check_bottom(int size, t_tetri *piece);
 int		ft_check_if_fit(t_tetri *piece, t_solution *solution);
 void	ft_place_piece(t_solution *solution, t_tetri *piece, char ch);
 void 	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p);

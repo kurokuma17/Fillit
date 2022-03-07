@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/07 16:42:08 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/07 22:20:05 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
 void	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p)
 {
 	int	j;
-
 	while (i > 0)
 	{
 		j = 0;
 		while (j < 4)
 		{
-			solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] = '.';
+			if (solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] == pieces[p]->ch)
+				solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] = '.';
 			j++;
 		}
 		p++;
@@ -82,38 +82,22 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 		if (ft_check_if_fit(pieces[p], solution) == 1)
 		{
 			ft_place_piece(solution, pieces[p], pieces[p]->ch);
-			ft_print_array(solution->grid, solution->min_size);
-			printf("\n\n");
 			p++;
 		}
 		else
 		{
-			if (ft_move_until_fit(pieces[p], solution) == 1)
+			if (ft_move_until_fit(pieces[p], solution) == 0)
 			{
-				continue ;
-			}
-			else
-			{
-				printf("unable to place: %c\n", pieces[p]->ch);
 				p = p - i;
 				if (p < 0)
 					return (0);
 				ft_remove_pieces(solution, pieces, i, p);
-				ft_reset_pieces(pieces, solution, p);
-				ft_translate_array(pieces[p]->y_coord, 1);
-				if (ft_check_right(solution->min_size, pieces[p]) == 0)
+ 				ft_reset_pieces(pieces, solution, p);
+ 				ft_translate_array(pieces[p]->y_coord, 1);
+				if (ft_check_if_fit(pieces[p], solution) == 0)
 				{
 					ft_move_top_left(pieces[p]->y_coord);
 					ft_translate_array(pieces[p]->x_coord, 1);
-					if (ft_check_bottom(solution->min_size, pieces[p]) == 0)
-					{
-						i++;
-						if (p - i < 0)
-						{
-							ft_print_array(solution->grid, solution->min_size);
-							return (0);
-						}
-				 	}
 				}
 			}
 		}
@@ -130,7 +114,7 @@ void	ft_solve(t_tetri **pieces, t_solution *solution)
 		ft_translate_pieces(pieces, solution);
 		ft_create_grid(solution);
 	}
-	printf("smallest square = %d\n", solution->min_size);
+	// printf("smallest square = %d\n", solution->min_size);
 	ft_print_array(solution->grid, solution->min_size);
 	ft_free_grid(solution);
 }
