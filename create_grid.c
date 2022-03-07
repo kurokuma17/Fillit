@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/04 15:05:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/07 22:42:14 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,25 @@ void	ft_place_piece(t_solution *solution, t_tetri *piece, char ch)
 	}
 }
 
+void	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p)
+{
+	int	j;
+
+	while (i > 0)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if (solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] \
+				== pieces[p]->ch)
+				solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] \
+				= '.';
+			j++;
+		}
+		p++;
+		i--;
+	}
+}
 // void	ft_shift_tetri(t_solution *solution, t_tetri *piece, int y, int x)
 // {
 // 	int i;

@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/04 15:24:18 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/07 22:43:22 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-void	ft_translate_array (int *array, int nbr)
+void	ft_translate_array(int *array, int nbr)
 {
 	int	i;
 
@@ -60,6 +60,18 @@ void	ft_translate_pieces(t_tetri **pieces, t_solution *solution)
 	}
 }
 
+void	ft_reset_pieces(t_tetri **pieces, t_solution *solution, int p)
+{
+	int	i;
+
+	i = p + 1;
+	while (i < solution->nbr_pieces)
+	{
+		ft_move_top_left(pieces[i]->x_coord);
+		ft_move_top_left(pieces[i]->y_coord);
+		i++;
+	}
+}
 // // move the tetri horizontally
 // // y < 0: move left, y > 0: move right
 // void	ft_move_horizontal(t_solution *solution, t_tetri *piece, int y)
@@ -73,7 +85,6 @@ void	ft_translate_pieces(t_tetri **pieces, t_solution *solution)
 // 		i++;
 // 	}
 // }
-
 
 // // move the tetri vertically
 // // x < 0: move up, x > 0: move down

@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/07 22:20:05 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/07 22:42:51 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,15 @@ int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
 	return (1);
 }
 
-void	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p)
+void	ft_backtrack(t_tetri **pieces, t_solution *solution, int p, int i)
 {
-	int	j;
-	while (i > 0)
+	ft_remove_pieces(solution, pieces, i, p);
+	ft_reset_pieces(pieces, solution, p);
+	ft_translate_array(pieces[p]->y_coord, 1);
+	if (ft_check_if_fit(pieces[p], solution) == 0)
 	{
-		j = 0;
-		while (j < 4)
-		{
-			if (solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] == pieces[p]->ch)
-				solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] = '.';
-			j++;
-		}
-		p++;
-		i--;
-	}
-}
-
-void	ft_reset_pieces(t_tetri **pieces, t_solution *solution, int p)
-{
-	int	i;
-
-	i = p + 1;
-	while (i < solution->nbr_pieces)
-	{
-		ft_move_top_left(pieces[i]->x_coord);
-		ft_move_top_left(pieces[i]->y_coord);
-		i++;
+		ft_move_top_left(pieces[p]->y_coord);
+		ft_translate_array(pieces[p]->x_coord, 1);
 	}
 }
 
@@ -91,14 +73,7 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 				p = p - i;
 				if (p < 0)
 					return (0);
-				ft_remove_pieces(solution, pieces, i, p);
- 				ft_reset_pieces(pieces, solution, p);
- 				ft_translate_array(pieces[p]->y_coord, 1);
-				if (ft_check_if_fit(pieces[p], solution) == 0)
-				{
-					ft_move_top_left(pieces[p]->y_coord);
-					ft_translate_array(pieces[p]->x_coord, 1);
-				}
+				ft_backtrack(pieces, solution, p, i);
 			}
 		}
 	}
@@ -114,7 +89,6 @@ void	ft_solve(t_tetri **pieces, t_solution *solution)
 		ft_translate_pieces(pieces, solution);
 		ft_create_grid(solution);
 	}
-	// printf("smallest square = %d\n", solution->min_size);
 	ft_print_array(solution->grid, solution->min_size);
 	ft_free_grid(solution);
 }
