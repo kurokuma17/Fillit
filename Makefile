@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 10:36:32 by deelliot          #+#    #+#              #
-#    Updated: 2022/03/07 16:03:02 by deelliot         ###   ########.fr        #
+#    Updated: 2022/03/07 22:45:04 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,3 @@ re: fclean all
 
 test: re
 	./$(NAME)
-
-$(V).SILENT:
