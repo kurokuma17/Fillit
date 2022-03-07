@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/04 15:34:14 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:42:08 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,16 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 {
 	int	p;
 	int	i;
-	int	count;
-	int	vert_count;
 
 	p = 0;
 	i = 1;
-	count = 0;
-	vert_count = 0;
 	while (p < solution->nbr_pieces)
 	{
 		if (ft_check_if_fit(pieces[p], solution) == 1)
 		{
 			ft_place_piece(solution, pieces[p], pieces[p]->ch);
+			ft_print_array(solution->grid, solution->min_size);
+			printf("\n\n");
 			p++;
 		}
 		else
@@ -96,26 +94,25 @@ int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 			}
 			else
 			{
+				printf("unable to place: %c\n", pieces[p]->ch);
 				p = p - i;
 				if (p < 0)
 					return (0);
 				ft_remove_pieces(solution, pieces, i, p);
 				ft_reset_pieces(pieces, solution, p);
-				count++;
-				ft_translate_array(pieces[p]->y_coord, count);
-				if (count == solution->min_size || ft_check_if_fit(pieces[p], solution) == 0)
+				ft_translate_array(pieces[p]->y_coord, 1);
+				if (ft_check_right(solution->min_size, pieces[p]) == 0)
 				{
 					ft_move_top_left(pieces[p]->y_coord);
-					count = 0;
-					vert_count++;
-					ft_translate_array(pieces[p]->x_coord, vert_count);
-					if (vert_count == solution->min_size)
+					ft_translate_array(pieces[p]->x_coord, 1);
+					if (ft_check_bottom(solution->min_size, pieces[p]) == 0)
 					{
-						count = 0;
-						vert_count = 0;
 						i++;
 						if (p - i < 0)
+						{
+							ft_print_array(solution->grid, solution->min_size);
 							return (0);
+						}
 				 	}
 				}
 			}
