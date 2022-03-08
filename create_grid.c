@@ -6,12 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/08 09:59:02 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:57:37 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 /* malloc char array for grid and fill it with '.'*/
 

@@ -6,12 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 09:56:24 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:57:57 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 void	ft_translate_array(int *array, int nbr)
 {

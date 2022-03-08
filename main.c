@@ -6,13 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/07 21:22:44 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:58:36 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
-#include <string.h>
 
 void	ft_open_file(int fd, t_tetri **pieces, t_solution *solution)
 {

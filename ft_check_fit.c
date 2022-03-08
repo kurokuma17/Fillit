@@ -6,12 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:06:24 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/04 15:39:42 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:57:42 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 /* check whether the piece will overflow the right-most line */
 int	ft_check_right(int size, t_tetri *piece)

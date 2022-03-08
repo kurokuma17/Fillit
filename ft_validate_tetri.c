@@ -6,12 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:17:34 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:58:01 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 /*this function checks that there are the correct number of blocks
 empty spaces and newlines*/
