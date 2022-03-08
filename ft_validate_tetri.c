@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_validate_tetri.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:58:01 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 15:59:44 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ void	ft_validate_tetri(char *buf, t_tetri **pieces, t_solution *solution)
 		if ((ft_check_alignment(pieces[i / 21]) < 3))
 			ft_error("error", pieces, solution);
 		i += 21;
+		ft_strdel(&temp);
 	}
 	solution->nbr_pieces = i / 21;
 }

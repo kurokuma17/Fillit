@@ -3,22 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_errors.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:42:50 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 09:55:21 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 16:08:15 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	ft_free_pieces(t_tetri **pieces)
+void	ft_free_pieces(t_tetri **pieces)
 {
 	int	i;
+	int j;
 
 	i = 0;
 	while (pieces[i])
 	{
+		j = 0;
+		while (j < 4)
+			ft_strdel(&(pieces[i]->cells[j++]));
 		free (pieces[i]);
 		i++;
 	}

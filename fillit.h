@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 11:07:54 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 16:07:01 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_create_grid(t_solution *solution);
 int		ft_check_if_fit(t_tetri *piece, t_solution *solution);
 void	ft_place_piece(t_solution *solution, t_tetri *piece, char ch);
 void	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p);
+void	ft_free_pieces(t_tetri **pieces);
 void	ft_free_grid(t_solution *solution);
 void	ft_solve(t_tetri **pieces, t_solution *solution);
 
