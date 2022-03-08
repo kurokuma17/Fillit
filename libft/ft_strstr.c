@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:40:53 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:24:50 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:50:39 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* The strstr() function locates the first occurrence of the null-terminated*/
-/* string needle in the null-terminated string haystack.*/
+/* The strstr() function locates the first occurrence of the null-terminated
+string needle in the null-terminated string haystack.*/
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {

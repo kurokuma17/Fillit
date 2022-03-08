@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:07:11 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:23:39 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:48:36 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* The strcmp() and strncmp() functions lexicographically compare the null-*/
-/* terminated strings s1 and s2.*/
-/* The strncmp() function compares not more than n characters.*/
+/* The strcmp() and strncmp() functions lexicographically compare the null-
+terminated strings s1 and s2.
+The strncmp() function compares not more than n characters.*/
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

@@ -6,16 +6,16 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:05:21 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:24:41 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:50:28 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Allocates (with malloc(3)) and returns an array of “fresh” strings*/
-/* (all ending with ’\0’, including the array itself)*/
-/* obtained by spliting s using the character c as a delimiter.*/
-/* If the allocation fails the function returns NULL.*/
+/* Allocates (with malloc(3)) and returns an array of “fresh” strings
+(all ending with ’\0’, including the array itself)
+obtained by spliting s using the character c as a delimiter.
+If the allocation fails the function returns NULL.*/
 
 static int	ft_count_words(char const *s, char c)
 {

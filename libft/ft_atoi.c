@@ -6,12 +6,12 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:16:53 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:08:41 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:39:42 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* The atoi() function converts the initial portion of the string pointed to
-/* by str to int representation.*/
+by str to int representation.*/
 
 static int	ft_clear_whitespace(const char *str)
 {

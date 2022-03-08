@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:08:41 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:16:07 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:42:39 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Allocates (with malloc(3)) and returns a “fresh” 2D array.*/
-/* The memory allocated is initialized to 0.*/
-/* If the allocation fails, the function returns NULL.*/
+/* Allocates (with malloc(3)) and returns a “fresh” 2D array.
+The memory allocated is initialized to 0.
+If the allocation fails, the function returns NULL.*/
 
 void	**ft_memallocarray(size_t x, size_t y)
 {

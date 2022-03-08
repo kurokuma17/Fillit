@@ -6,12 +6,12 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:58:51 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:20:11 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:45:44 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* The strcmp() and strncmp() functions lexicographically compare the null-*/
-/* terminated strings s1 and s2.*/
+/* The strcmp() and strncmp() functions lexicographically compare the null-
+terminated strings s1 and s2.*/
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
