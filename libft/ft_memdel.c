@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:33:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:01:17 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:18:02 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Takes as a parameter the address of a memory area that needs to be freed
-// with free(3), then puts the pointer to NULL.
+/* Takes as a parameter the address of a memory area that needs to be freed*/
+/* with free(3), then puts the pointer to NULL.*/
 
 void	ft_memdel(void **ap)
 {

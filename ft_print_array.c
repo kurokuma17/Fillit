@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 16:31:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/25 11:00:28 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 09:54:16 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,4 @@ void	ft_print_array(char **array, int size)
 		ft_putchar('\n');
 		i++;
 	}
-}
-
-void	ft_print_int_array(int *array)
-{
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		ft_putnbr(array[i]);
-		i++;
-	}
-	ft_putchar('\n');
 }

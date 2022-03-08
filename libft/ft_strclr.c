@@ -6,13 +6,13 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 10:01:40 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:04:29 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:19:29 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Sets every character of the string to the value ’\0
+/* Sets every character of the string to the value ’\0*/
 
 void	ft_strclr(char *s)
 {

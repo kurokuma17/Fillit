@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:26:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 16:43:44 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:16:38 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// The memchr() function locates the first occurrence of c (converted to an
-// unsigned char) in string s.
+/* The memchr() function locates the first occurrence of c (converted to an*/
+/* unsigned char) in string s.*/
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

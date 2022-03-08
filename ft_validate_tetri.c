@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/07 21:11:19 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:17:34 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-//this function checks that there are the correct number of blocks
-// empty spaces and newlines
+/*this function checks that there are the correct number of blocks
+empty spaces and newlines*/
 
 static int	ft_check_errors(char *tetri_str)
 {
@@ -38,8 +38,8 @@ static int	ft_check_errors(char *tetri_str)
 	return (newline_count == 5 && block_count == 4 && empty_count == 12);
 }
 
-//this function assigns memory for each new tetrimoni struct, and converts the
-// buf str into a 2d array, which is saved in the struct
+/*this function assigns memory for each new tetrimoni struct, and converts the
+buf str into a 2d array, which is saved in the struct*/
 
 static t_tetri	*ft_create_tetri(char *tetri_str)
 {
@@ -70,7 +70,7 @@ static t_tetri	*ft_create_tetri(char *tetri_str)
 	return (new_piece);
 }
 
-//this just fills in the remaining variables in the struct
+/*this just fills in the remaining variables in the struct */
 
 static void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 {
@@ -98,7 +98,7 @@ static void	ft_store_tetri(t_tetri *new_piece, int piece_nbr)
 	}
 }
 
-// this checks that the pieces are correctly aligned
+/* this checks that the pieces are correctly aligned */
 
 static int	ft_check_alignment(t_tetri *new_piece)
 {
@@ -125,8 +125,8 @@ static int	ft_check_alignment(t_tetri *new_piece)
 	return (count);
 }
 
-//loops through each piece in the file, checks for errors,
-// coverts str to 2d array, and then stores in it the struct
+/*loops through each piece in the file, checks for errors,
+coverts str to 2d array, and then stores in it the struct*/
 
 void	ft_validate_tetri(char *buf, t_tetri **pieces, t_solution *solution)
 {

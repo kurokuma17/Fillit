@@ -6,16 +6,16 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 18:04:49 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:12:51 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:14:13 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Allocate (with malloc(3)) and returns a “fresh” string ending with ’\0’
-// representing the integer n given as argument.
-// Negative numbers must be supported. If the allocation fails,
-// the function returns NULL.
+/* Allocate (with malloc(3)) and returns a “fresh” string ending with ’\0’*/
+/* representing the integer n given as argument.*/
+/* Negative numbers must be supported. If the allocation fails,*/
+/* the function returns NULL.*/
 
 static int	ft_log_ten(long int x)
 {

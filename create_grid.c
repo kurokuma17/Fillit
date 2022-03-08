@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/07 22:42:14 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 09:59:02 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-// malloc char array for grid and fill it with '.'
+/* malloc char array for grid and fill it with '.'*/
 
 void	ft_get_min_grid_size(t_solution *solution)
 {
@@ -57,7 +57,7 @@ void	ft_create_grid(t_solution *solution)
 	}
 }
 
-// place the piece in the solution grid with the designated character
+/* place the piece in the solution grid with the designated character*/
 void	ft_place_piece(t_solution *solution, t_tetri *piece, char ch)
 {
 	int	i;
@@ -89,15 +89,3 @@ void	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p)
 		i--;
 	}
 }
-// void	ft_shift_tetri(t_solution *solution, t_tetri *piece, int y, int x)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (solution && piece && i < 4)
-// 	{
-// 		piece->y_coord[i] += y;
-// 		piece->x_coord[i] += x;
-// 		i++;
-// 	}
-// }

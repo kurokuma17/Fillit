@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:34:02 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 16:41:59 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:18:10 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// The memmove() function copies len bytes from string src to string dst.  The
-// two strings may overlap; the copy is always done in a non-destructive
-// manner.
+/* The memmove() function copies len bytes from string src to string dst.  The*/
+/* two strings may overlap; the copy is always done in a non-destructive*/
+/* manner.*/
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

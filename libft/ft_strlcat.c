@@ -6,20 +6,20 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:46:25 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:20:48 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:22:47 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// strlcpy() copies up to dstsize - 1 characters from the string src to dst,
-// NUL-terminating the result if dstsize is not 0.
+/* strlcpy() copies up to dstsize - 1 characters from the string src to dst,*/
+/* NUL-terminating the result if dstsize is not 0.*/
 
-// strlcat() appends string src to the end of dst.  It will append at most
-// dstsize - strlen(dst) - 1 characters.  It will then NUL-terminate, unless
-// dstsize is 0 or the original dst string was longer than dstsize (in
-// practice this should not happen as it means that either dstsize is
-// incorrect or that dst is not a proper string).
+/* strlcat() appends string src to the end of dst.  It will append at most*/
+/* dstsize - strlen(dst) - 1 characters.  It will then NUL-terminate, unless*/
+/* dstsize is 0 or the original dst string was longer than dstsize (in*/
+/* practice this should not happen as it means that either dstsize is*/
+/* incorrect or that dst is not a proper string).*/
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

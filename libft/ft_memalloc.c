@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 10:55:36 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:00:51 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:16:00 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Allocates (with malloc(3)) and returns a “fresh” memory area.
-// The memory allocated is initialized to 0.
-// If the allocation fails, the function returns NULL.
+/* Allocates (with malloc(3)) and returns a “fresh” memory area.*/
+/* The memory allocated is initialized to 0.*/
+/* If the allocation fails, the function returns NULL.*/
 
 void	*ft_memalloc(size_t size)
 {

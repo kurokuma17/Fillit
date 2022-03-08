@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 17:30:16 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:31:13 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:15:29 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Iterates a list lst and applies the function f to each link to create a
-// “fresh”list (using malloc(3)) resulting from the successive applications of f
-// If the allocation fails, the function returns NULL.
+/* Iterates a list lst and applies the function f to each link to create a*/
+/* “fresh”list (using malloc(3)) resulting from the successive applications*/
+/* of f. If the allocation fails, the function returns NULL.*/
 
 static void	ft_clear_list(t_list **new_lst)
 {

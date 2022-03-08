@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 12:00:22 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 16:48:10 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:23:56 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// The stpncpy() and strncpy() functions copy at most len characters from src
-// into dst.	If src is less than len characters long, the remainder of dst is
-// filled with `\0' characters.  Otherwise, dst is not terminated.
+/* The stpncpy() and strncpy() functions copy at most len characters from src*/
+/* into dst. If src is less than len characters long, the remainder of dst is*/
+/* filled with `\0' characters.  Otherwise, dst is not terminated.*/
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {

@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 13:44:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:08:45 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:24:06 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Lexicographical comparison between s1 and s2.
-// If the 2 strings are identical the function returns 1, or 0 otherwise
+/* Lexicographical comparison between s1 and s2.*/
+/* If the 2 strings are identical the function returns 1, or 0 otherwise*/
 
 int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
