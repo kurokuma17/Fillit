@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:06:24 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:57:42 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 11:04:15 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 /* check whether the piece will overflow the right-most line */
-int	ft_check_right(int size, t_tetri *piece)
+static int	ft_check_right(int size, t_tetri *piece)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	ft_check_right(int size, t_tetri *piece)
 }
 
 /* check whether the piece will overflow the bottom-most line */
-int	ft_check_bottom(int size, t_tetri *piece)
+static int	ft_check_bottom(int size, t_tetri *piece)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ int	ft_check_bottom(int size, t_tetri *piece)
 }
 
 /* check whether the grid has place for the piece */
-int	ft_check_next_spot(t_solution *solution, t_tetri *piece)
+static int	ft_check_next_spot(t_solution *solution, t_tetri *piece)
 {
 	int	i;
 

@@ -6,13 +6,13 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:57:50 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 11:05:30 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
+static int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
 {
 	int	hor_count;
 	int	vert_count;
@@ -39,7 +39,7 @@ int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
 	return (1);
 }
 
-void	ft_backtrack(t_tetri **pieces, t_solution *solution, int p, int i)
+static void	ft_backtrack(t_tetri **pieces, t_solution *solution, int p, int i)
 {
 	ft_remove_pieces(solution, pieces, i, p);
 	ft_reset_pieces(pieces, solution, p);
