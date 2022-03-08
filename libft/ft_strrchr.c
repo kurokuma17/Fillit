@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:35:45 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 16:53:25 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:28:31 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// The strrchr() function is identical to strchr(), except it locates the last
-// occurrence of c.
+/* The strrchr() function is identical to strchr(), except it locates the last*/
+/* occurrence of c.*/
 
 char	*ft_strrchr(const char *s, int c)
 {
