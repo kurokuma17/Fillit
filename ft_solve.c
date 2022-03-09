@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_solve.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/09 14:13:49 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/03/09 15:06:52 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	ft_solve(t_tetri **pieces, t_solution *solution)
 	ft_create_grid(solution);
 	while (ft_check_if_solved(pieces, solution) == 0)
 	{
+		if (solution->grid)
+			ft_free_grid(solution);
 		solution->min_size += 1;
 		ft_translate_pieces(pieces, solution);
 		ft_create_grid(solution);

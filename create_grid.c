@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_grid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/03/09 13:14:25 by deelliot         ###   ########.fr       */
-=======
-/*   Updated: 2022/03/09 14:13:17 by trnguyen         ###   ########.fr       */
->>>>>>> c84de85f02093c4a36fcb092a0ec0ef6f37865ed
+/*   Updated: 2022/03/09 15:07:46 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +45,6 @@ void	ft_create_grid(t_solution *solution)
 	i = 0;
 	if (solution)
 	{
-		if (solution->grid)
-			ft_free_grid(solution);
 		solution->grid = (char **)ft_memallocarray(solution->min_size, \
 		solution->min_size);
 		while (i < solution->min_size)
