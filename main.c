@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/03/09 14:49:55 by deelliot         ###   ########.fr       */
+=======
+/*   Updated: 2022/03/09 14:14:08 by trnguyen         ###   ########.fr       */
+>>>>>>> c84de85f02093c4a36fcb092a0ec0ef6f37865ed
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 static void	ft_open_file(int fd, t_tetri **pieces, t_solution *solution)
 {
