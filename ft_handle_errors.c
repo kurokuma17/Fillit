@@ -6,7 +6,7 @@
 /*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:42:50 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 16:08:15 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/03/09 12:25:22 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_free_pieces(t_tetri **pieces)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (pieces[i])

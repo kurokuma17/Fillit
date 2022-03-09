@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_grid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/08 10:57:37 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:13:17 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ void	ft_free_grid(t_solution *solution)
 	int	i;
 
 	i = 0;
-	while (i < (solution->min_size - 1))
+	while (i < solution->min_size)
 	{
-		free (solution->grid[i]);
+		ft_strdel(&(solution->grid[i]));
 		i++;
 	}
+	free(solution->grid);
 }
 
 void	ft_create_grid(t_solution *solution)
