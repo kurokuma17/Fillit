@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_fit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:06:24 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 11:04:15 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/09 16:52:57 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ static int	ft_check_bottom(int size, t_tetri *piece)
 	if (i == 4)
 		return (1);
 	else
-	{
 		return (0);
-	}
 }
 
 /* check whether the grid has place for the piece */

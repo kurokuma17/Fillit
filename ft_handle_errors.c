@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_errors.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:42:50 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/09 14:53:27 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/09 16:57:30 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_free_pieces(t_tetri **pieces)
 		j = 0;
 		while (j < 4)
 			ft_strdel(&(pieces[i]->cells[j++]));
-		free (pieces[i]);
+		free(pieces[i]->cells);
+		free(pieces[i]);
 		i++;
 	}
 }
