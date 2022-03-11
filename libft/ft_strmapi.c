@@ -6,15 +6,15 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 13:17:15 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:07:53 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:48:14 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Applies the function f to each character of the string passed as argument
-// by giving its index as first argument to create a “fresh”
-// new string (with malloc(3)) resulting from the successive applications of f.
+/* Applies the function f to each character of the string passed as argument
+by giving its index as first argument to create a “fresh”
+new string (with malloc(3)) resulting from the successive applications of f*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

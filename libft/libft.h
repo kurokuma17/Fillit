@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:25:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/03 12:45:00 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/02/21 12:41:51 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include<sys/types.h>
-# include<sys/stat.h>
 # include <fcntl.h>
+
+# define BUFF_SIZE 8
+# define MAX_FD 4096
 
 typedef struct s_list
 {
@@ -81,7 +82,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void	*ft_calloc(size_t count, size_t size);
 t_list	*ft_lstnew(void const *content, size_t content_size);
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -89,5 +89,12 @@ void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void	ft_lstadd_back(t_list **alst, t_list *new);
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+char	*ft_strndup(const char *s1, size_t n);
+int		get_next_line(const int fd, char **line);
+int		ft_abs(int i);
+void	**ft_memallocarray(size_t x, size_t y);
+int		ft_sqrt(int nb);
+int		ft_find_next_sqrt(int nb);
+int		ft_max(int x, int y);
 
 #endif

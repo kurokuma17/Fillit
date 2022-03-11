@@ -6,11 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:53:36 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/31 18:05:44 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:51:07 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static int	ft_transfer_heap(const int fd, char **line, char **heap)
 {
@@ -44,17 +44,10 @@ static int	ft_check_file(const int fd, char **line, int ret, char **heap)
 		return (ft_transfer_heap(fd, line, heap));
 }
 
-int	get_next_line(const int fd, char **line)
+int	ft_read_file(int ret, char **heap, char *buf, int fd)
 {
-	char		buf[BUFF_SIZE + 1];
-	static char	*heap[MAX_FD + 1];
-	char		*temp;
-	int			ret;
+	char	*temp;
 
-	if (fd < 0 || !line || fd > MAX_FD)
-		return (-1);
-	*line = NULL;
-	ret = read(fd, buf, BUFF_SIZE);
 	while (ret > 0)
 	{
 		buf[ret] = '\0';
@@ -76,5 +69,20 @@ int	get_next_line(const int fd, char **line)
 			break ;
 		ret = read(fd, buf, BUFF_SIZE);
 	}
+	return (1);
+}
+
+int	get_next_line(const int fd, char **line)
+{
+	char		buf[BUFF_SIZE + 1];
+	static char	*heap[MAX_FD + 1];
+	int			ret;
+
+	if (fd < 0 || !line || fd > MAX_FD)
+		return (-1);
+	*line = NULL;
+	ret = read(fd, buf, BUFF_SIZE);
+	if (ft_read_file(ret, heap, buf, fd) == -1)
+		return (-1);
 	return (ft_check_file (fd, line, ret, heap));
 }

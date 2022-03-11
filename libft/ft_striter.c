@@ -6,14 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 10:34:44 by deelliot          #+#    #+#             */
-/*   Updated: 2022/01/25 17:05:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:46:58 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Applies the function f to each character of the string passed as argument.
-// Each character is passed by address to f to be modified if necessary.
+/* Applies the function f to each character of the string passed as argument.
+Each character is passed by address to f to be modified if necessary.*/
 
 void	ft_striter(char *s, void (*f)(char *))
 {
