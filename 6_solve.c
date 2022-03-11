@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_solve.c                                         :+:      :+:    :+:   */
+/*   6_solve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/10 14:13:26 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/11 12:38:04 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	ft_backtrack(t_tetri **pieces, t_solution *solution, int p, int i)
 	}
 }
 
-int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
+static int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 {
 	int	p;
 	int	i;
