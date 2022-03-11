@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate_tetri.c                                :+:      :+:    :+:   */
+/*   2_validate_tetri.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 15:59:44 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/03/11 13:48:13 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	ft_check_errors(char *tetri_str)
 	block_count = 0;
 	empty_count = 0;
 	newline_count = 0;
+	if (tetri_str[21] != '\n' && tetri_str[19] != '\n')
+		return (0);
 	while (*tetri_str)
 	{
 		if (*tetri_str == '#')
