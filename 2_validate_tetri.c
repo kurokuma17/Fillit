@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   2_validate_tetri.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/11 13:48:13 by trnguyen         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:01:26 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

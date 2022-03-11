@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:53:46 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/11 14:29:45 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:01:18 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static void	ft_open_file(int fd, t_tetri **pieces, t_solution *solution)
 	i = 0;
 	ret = read(fd, buf, 546);
 	if (ret <= 0 || (ret + 1) % 21 != 0)
-		ft_error("error", pieces, solution);
-	if (buf[ret - 1] == '\n' && buf[ret - 2] == '\n')
 		ft_error("error", pieces, solution);
 	buf[ret] = '\n';
 	buf[ret + 1] = '\0';
