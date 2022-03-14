@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 10:36:32 by deelliot          #+#    #+#              #
-#    Updated: 2022/03/11 14:23:42 by deelliot         ###   ########.fr        #
+#    Updated: 2022/03/14 09:43:47 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,14 @@ SRCS += ft_print_array.c
 
 INCLS = fillit.h
 
+OBJS = $(SRCS:%.c=%.o)
+
 all: $(NAME)
 
 $(NAME):
 	make -C libft
-	gcc $(CFLAGS) -o $(NAME) $(SRCS) -I fillit.h -L./libft -lft
+	gcc -c $(SRCS) $(CFLAGS)
+	gcc $(CFLAGS) -o $(NAME) $(OBJS) -L./libft -lft
 
 clean:
 	rm -f $(OBJS)
@@ -42,6 +45,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all fclean clean re
-
-test: re
-	./$(NAME)
