@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   2_validate_tetri.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:56:10 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/11 15:01:26 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/16 17:08:38 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_check_errors(char *tetri_str)
 	block_count = 0;
 	empty_count = 0;
 	newline_count = 0;
-	if (tetri_str[21] != '\n' && tetri_str[19] != '\n')
+	if (tetri_str[20] != '\n' || tetri_str[19] != '\n')
 		return (0);
 	while (*tetri_str)
 	{

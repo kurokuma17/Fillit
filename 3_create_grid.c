@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_grid.c                                      :+:      :+:    :+:   */
+/*   3_create_grid.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:13:47 by trnguyen          #+#    #+#             */
-/*   Updated: 2022/03/09 15:07:46 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/16 17:19:04 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/* malloc char array for grid and fill it with '.'*/
 
 void	ft_get_min_grid_size(t_solution *solution)
 {
@@ -37,6 +35,8 @@ void	ft_free_grid(t_solution *solution)
 	}
 	free(solution->grid);
 }
+
+/* malloc char array for grid and fill it with '.'*/
 
 void	ft_create_grid(t_solution *solution)
 {
@@ -65,25 +65,5 @@ void	ft_place_piece(t_solution *solution, t_tetri *piece, char ch)
 	{
 		solution->grid[piece->x_coord[i]][piece->y_coord[i]] = ch;
 		i++;
-	}
-}
-
-void	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p)
-{
-	int	j;
-
-	while (i > 0)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] \
-				== pieces[p]->ch)
-				solution->grid[pieces[p]->x_coord[j]][pieces[p]->y_coord[j]] \
-				= '.';
-			j++;
-		}
-		p++;
-		i--;
 	}
 }
