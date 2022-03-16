@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   5_check_fit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:06:24 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/11 14:19:42 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/16 12:37:39 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 /* check whether the piece will overflow the right-most line */
-static int	ft_check_right(int size, t_tetri *piece)
+int	ft_check_right(int size, t_tetri *piece)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ static int	ft_check_right(int size, t_tetri *piece)
 }
 
 /* check whether the piece will overflow the bottom-most line */
-static int	ft_check_bottom(int size, t_tetri *piece)
+int	ft_check_bottom(int size, t_tetri *piece)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ static int	ft_check_bottom(int size, t_tetri *piece)
 }
 
 /* check whether the grid has place for the piece */
-static int	ft_check_next_spot(t_solution *solution, t_tetri *piece)
+int	ft_check_next_spot(t_solution *solution, t_tetri *piece)
 {
 	int	i;
 

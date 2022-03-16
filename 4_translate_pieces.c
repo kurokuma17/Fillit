@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_translate_pieces.c                              :+:      :+:    :+:   */
+/*   4_translate_pieces.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:52:54 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/08 10:57:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:18:33 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,12 @@ void	ft_translate_pieces(t_tetri **pieces, t_solution *solution)
 	}
 }
 
-void	ft_reset_pieces(t_tetri **pieces, t_solution *solution, int p)
+void	ft_reset_pieces(t_tetri **pieces, int p)
 {
-	int	i;
-
-	i = p + 1;
-	while (i < solution->nbr_pieces)
+	while (pieces[p])
 	{
-		ft_move_top_left(pieces[i]->x_coord);
-		ft_move_top_left(pieces[i]->y_coord);
-		i++;
+		ft_move_top_left(pieces[p]->x_coord);
+		ft_move_top_left(pieces[p]->y_coord);
+		p++;
 	}
 }

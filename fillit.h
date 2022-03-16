@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 10:54:18 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/11 10:20:12 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/16 16:13:07 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_get_min_grid_size(t_solution *solution);
 void	ft_translate_array(int *array, int nbr);
 void	ft_translate_pieces(t_tetri **pieces, t_solution *solution);
 void	ft_move_top_left(int *array);
-void	ft_reset_pieces(t_tetri **pieces, t_solution *solution, int p);
+void	ft_reset_pieces(t_tetri **pieces, int p);
 void	ft_print_array(char **array, int size);
 void	ft_create_grid(t_solution *solution);
 int		ft_check_if_fit(t_tetri *piece, t_solution *solution);
@@ -45,5 +45,8 @@ void	ft_remove_pieces(t_solution *solution, t_tetri **pieces, int i, int p);
 void	ft_free_pieces(t_tetri **pieces);
 void	ft_free_grid(t_solution *solution);
 void	ft_solve(t_tetri **pieces, t_solution *solution);
+int		ft_check_right(int size, t_tetri *piece);
+int		ft_check_bottom(int size, t_tetri *piece);
+int		ft_check_next_spot(t_solution *solution, t_tetri *piece);
 
 #endif

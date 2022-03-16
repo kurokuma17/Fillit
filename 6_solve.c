@@ -3,80 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   6_solve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:51:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/03/11 12:38:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/16 16:10:40 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	ft_move_until_fit(t_tetri *piece, t_solution *solution)
+static void	ft_reset_and_move(t_tetri **pieces, int p, int x, int y)
 {
-	int	hor_count;
-	int	vert_count;
-
-	hor_count = 0;
-	vert_count = 0;
-	while (ft_check_if_fit(piece, solution) == 0)
-	{
-		ft_translate_array(piece->y_coord, 1);
-		hor_count++;
-		if (hor_count == solution->min_size)
-		{
-			ft_translate_array(piece->y_coord, - (solution->min_size));
-			ft_translate_array(piece->x_coord, 1);
-			vert_count++;
-			hor_count = 0;
-			if (vert_count == solution->min_size)
-			{
-				ft_translate_array(piece->x_coord, - (solution->min_size));
-				return (0);
-			}
-		}
-	}
-	return (1);
-}
-
-static void	ft_backtrack(t_tetri **pieces, t_solution *solution, int p, int i)
-{
-	ft_remove_pieces(solution, pieces, i, p);
-	ft_reset_pieces(pieces, solution, p);
-	ft_translate_array(pieces[p]->y_coord, 1);
-	if (ft_check_if_fit(pieces[p], solution) == 0)
-	{
-		ft_move_top_left(pieces[p]->y_coord);
-		ft_translate_array(pieces[p]->x_coord, 1);
-	}
+	ft_reset_pieces(pieces, p);
+	ft_translate_array(pieces[p]->y_coord, y);
+	ft_translate_array(pieces[p]->x_coord, x);
 }
 
 static int	ft_check_if_solved(t_tetri **pieces, t_solution *solution)
 {
 	int	p;
-	int	i;
+	int	hor_count;
+	int	vert_count;
 
 	p = 0;
-	i = 1;
-	while (p < solution->nbr_pieces)
+	vert_count = 0;
+	if (!pieces[p])
+		return (1);
+	while (ft_check_bottom(solution->min_size, pieces[p]) == 1)
 	{
-		if (ft_check_if_fit(pieces[p], solution) == 1)
+		hor_count = 0;
+		while (ft_check_right(solution->min_size, pieces[p]) == 1)
 		{
-			ft_place_piece(solution, pieces[p], pieces[p]->ch);
-			p++;
-		}
-		else
-		{
-			if (ft_move_until_fit(pieces[p], solution) == 0)
+			if (ft_check_next_spot(solution, pieces[p]) == 1)
 			{
-				p = p - i;
-				if (p < 0)
-					return (0);
-				ft_backtrack(pieces, solution, p, i);
+				ft_place_piece(solution, pieces[p], pieces[p]->ch);
+				if (ft_check_if_solved(&pieces[p + 1], solution) == 1)
+					return (1);
+				else
+					ft_place_piece(solution, pieces[p], '.');
 			}
+			ft_reset_and_move(pieces, p, vert_count, ++hor_count);
 		}
+		ft_reset_and_move(pieces, p, ++vert_count, 0);
 	}
-	return (1);
+	return (0);
 }
 
 void	ft_solve(t_tetri **pieces, t_solution *solution)
