@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: trnguyen <trnguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:25:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/02/21 12:41:51 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:23:05 by trnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void	**ft_memallocarray(size_t x, size_t y);
 int		ft_sqrt(int nb);
 int		ft_find_next_sqrt(int nb);
 int		ft_max(int x, int y);
+void	ft_print_array(char **array, int size);
 
 #endif
